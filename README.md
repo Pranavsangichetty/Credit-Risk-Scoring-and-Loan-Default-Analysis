@@ -35,7 +35,7 @@ File: `german_credit_data.csv`
 
 ## Day 1–Day 4 progress
 
-See [Project Lead Tracker](reports/day1-day4_project_lead_tracker.md) for the milestone plan, dataset facts, decisions, review checklist and next steps.
+See [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md) for the initial milestone plan and [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md) for validation, explainability and integration tasks.
 
 The baseline model implementation and run instructions are maintained on the `Nivesh243` branch in `src/train_baseline.py` and `reports/day4_baseline_model.md`.
 

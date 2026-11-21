@@ -49,3 +49,41 @@
 
 ## Scope note
 This audit records observed CSV properties only. It does not establish causal relationships or model performance.
+
+## Day 1 — Follow-up verification
+
+### Column names and index
+- Printed column names contain no leading or trailing whitespace.
+- `Unnamed: 0` contains unique sequential values from 0 through 999.
+- It appears to be a row index. Exclude it from modeling only after documenting that decision; preserve the original CSV unchanged.
+
+### Categorical values observed
+- `Sex`: `female`, `male`
+- `Housing`: `free`, `own`, `rent`
+- `Saving accounts`: `little`, `moderate`, `quite rich`, `rich`
+- `Checking account`: `little`, `moderate`, `rich`
+- `Purpose`: `business`, `car`, `domestic appliances`, `education`, `furniture/equipment`, `radio/TV`, `repairs`, `vacation/others`
+- `Risk`: `bad`, `good`
+
+### Numeric ranges observed
+| Field | Minimum | Maximum |
+|---|---:|---:|
+| Age | 19 | 75 |
+| Job | 0 | 3 |
+| Credit amount | 250 | 18,424 |
+| Duration | 4 | 72 |
+
+`Job` is stored as an integer-coded field; confirm the meaning of each code before interpreting it as a numeric measurement.
+
+### Missingness by target
+| Field | Risk | Missing | Total | Missing share |
+|---|---|---:|---:|---:|
+| Saving accounts | good | 151 | 700 | 21.6% |
+| Saving accounts | bad | 32 | 300 | 10.7% |
+| Checking account | good | 348 | 700 | 49.7% |
+| Checking account | bad | 46 | 300 | 15.3% |
+
+Missingness differs across the observed target groups. Investigate and document a handling strategy; these counts alone do not establish why values are missing or which treatment is best.
+
+### Day 1 status
+Initial dataset audit and follow-up checks completed. Cleaning and modeling have not been performed.

@@ -4,6 +4,18 @@ An exploratory machine-learning project using the German Credit dataset to study
 
 > **Important:** The dataset target is a historical risk category, not a directly observed future default event with a defined prediction horizon. This project should not be described as a validated future-default prediction system or used to make real lending decisions.
 
+## Project structure
+
+The `main` branch is the single consolidated project workspace. It contains reviewed, reusable deliverables organized by project purpose rather than by individual contributor.
+
+- Root-level numbered notebooks: statistical analysis, feature relationships and feature engineering.
+- `src/`: reusable preprocessing, training and validation code.
+- `reports/`: project reports, validation plans, team-lead trackers and supporting evidence.
+- `german_credit_data.csv`: source dataset.
+- `requirements.txt`: Python dependencies.
+
+Do not create member-specific copies of the same notebooks or reports (for example, `reports/<member>/`). Keep one canonical copy in the appropriate project location.
+
 ## Dataset
 
 File: `german_credit_data.csv`
@@ -19,19 +31,22 @@ File: `german_credit_data.csv`
 
 | Member | Focus |
 |---|---|
-| Pranav Kumar | Team lead, coordination and integration |
+| Pranav Kumar | Team lead, coordination, quality review and integration |
 | Lav Kumar | Data engineering and EDA |
 | Divya | Statistical analysis and feature engineering |
 | Nivesh | ML and model development |
 | Sirisha | Explainability and documentation |
 | Raj | BI and dashboard |
 
-## Branch workflow
+## GitHub workflow
 
-- `main`: shared stable project branch.
-- `Pranavsangichetty`: project coordination, milestones and integration documentation.
-- `Nivesh243`: ML preprocessing and baseline modelling.
-- Contributor work should be committed to the assigned branch and reviewed through pull requests. Do not push unreviewed work directly to `main`.
+- `main` is the canonical, consolidated branch used for the shared project and daily progress.
+- Contributors may use their assigned branches while developing or testing work.
+- Only reviewed, non-duplicate and project-ready deliverables should be integrated into `main`.
+- Prefer a small pull request containing the final deliverable(s), rather than copying every intermediate file or maintaining member-wise folders.
+- Keep the contributor branches as working/history branches; they do not need to be merged wholesale or deleted after each update.
+- Do not push unreviewed or untested changes directly to `main`.
+- After integration, update the relevant report/tracker and this README when the project structure or workflow changes.
 
 ## Project progress
 
@@ -39,11 +54,11 @@ File: `german_credit_data.csv`
 - [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md)
 - [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
 
-Divya's branch contains statistical-analysis and feature-engineering notebooks. Nivesh's branch contains the baseline training and validation scripts, requirements and ML documentation. Check the Day 6 tracker for the latest integration status and pending deliverables.
+The shared `main` branch contains the currently integrated analysis notebooks, baseline training and validation scripts, and project documentation. Check the Day 6 tracker for the latest contributor review and outstanding deliverables.
 
 ## Model implementation
 
-The baseline model implementation and run instructions are maintained on the `Nivesh243` branch in `src/train_baseline.py` and `reports/day4_baseline_model.md`. The 5-fold validation workflow is in `src/validate_baseline.py` and `reports/day5_validation_plan.md`.
+The baseline model implementation is in `src/train_baseline.py`. The 5-fold validation workflow is in `src/validate_baseline.py`. Run instructions and methodology are documented in `reports/day4_baseline_model.md` and `reports/day5_validation_plan.md`.
 
 ## Evaluation principles
 

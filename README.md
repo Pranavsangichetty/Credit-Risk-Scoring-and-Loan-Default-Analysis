@@ -1,69 +1,77 @@
 # Credit Risk Scoring and Loan Default Analysis
 
-An exploratory machine-learning project using the German Credit dataset to study the supplied historical credit-risk label (`good` / `bad`).
+An exploratory data-analysis and machine-learning project using the German Credit dataset to study the supplied historical credit-risk label (`good` / `bad`).
 
-> **Important:** The dataset target is a historical risk category, not a directly observed future default event with a defined prediction horizon. This project should not be described as a validated future-default prediction system or used to make real lending decisions.
+> **Important:** The dataset target is a historical risk category, not a directly observed future default event with a defined prediction horizon. This educational project is not a validated future-default prediction system and must not be used to make real lending decisions.
 
-## Project structure
+## Project objective
 
-The `main` branch is the single consolidated project workspace. It contains reviewed, reusable deliverables organized by project purpose rather than by individual contributor.
-
-- Root-level numbered notebooks: statistical analysis, feature relationships and feature engineering.
-- `src/`: reusable preprocessing, training and validation code.
-- `reports/`: project reports, validation plans, team-lead trackers and supporting evidence.
-- `german_credit_data.csv`: source dataset.
-- `requirements.txt`: Python dependencies.
-
-Do not create member-specific copies of the same notebooks or reports (for example, `reports/<member>/`). Keep one canonical copy in the appropriate project location.
+Explore customer and credit attributes, understand their relationship with the supplied risk labels, prepare model-ready features, compare baseline classification models and communicate their limitations responsibly.
 
 ## Dataset
 
-File: `german_credit_data.csv`
-
-- 1,000 records
-- 10 analytical fields: Age, Sex, Job, Housing, Saving accounts, Checking account, Credit amount, Duration, Purpose and Risk
+- File: `german_credit_data.csv`
+- Records: 1,000
+- Analytical fields: Age, Sex, Job, Housing, Saving accounts, Checking account, Credit amount, Duration, Purpose and Risk
 - Target: `Risk` (`good` / `bad`)
-- Target encoding used by the baseline: `good = 0`, `bad = 1`
-- Missing markers appear in Saving accounts and Checking account; handle them explicitly.
-- The exported first column is a row index, not a predictive feature.
+- Baseline encoding: `good = 0`, `bad = 1`
+- Missing values occur in Saving accounts and Checking account.
+- The exported first column is a row index and should not be used as a predictive feature.
+
+## Workflow
+
+1. Data understanding and quality checks
+2. Data cleaning and preprocessing
+3. Exploratory and statistical analysis
+4. Feature engineering, including WoE/IV analysis
+5. Logistic Regression and Random Forest baseline modelling
+6. Stratified validation and model comparison
+7. Explainability, fairness diagnostics and dashboard/reporting
+
+See [Project Architecture](docs/PROJECT_ARCHITECTURE.md) for the workflow and module boundaries.
+
+## Repository workflow and integration policy
+
+- `main` is the consolidated, shared project workspace. It should contain canonical, reviewed deliverables only.
+- `Pranavsangichetty` is the team-lead branch for coordination records, worklogs and integration documentation.
+- `lav-kumar`, `Divya-Akbari`, `Nivesh243`, `Sirisha` and the confirmed Raj branch are contributor development branches.
+- We do **not** merge every file from every contributor branch automatically. Review the file-level diff and integrate only relevant, non-duplicative, sufficiently verified deliverables through focused pull requests.
+- Keep drafts, temporary experiments, duplicate files, personal worklogs and unverified generated metrics on their source branch until they are ready.
+
+Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) before submitting or reviewing a pull request.
+
+## Current shared deliverables
+
+- Divya's statistical-analysis and feature-engineering notebooks and PDF summaries are integrated through PR #9.
+- Nivesh's baseline training/validation scripts and supporting ML documentation are integrated through PR #10.
+- Day 6 project-lead coordination and integration status are recorded through PR #11.
+- Training and validation code is available under `src/`; dependencies are in `requirements.txt`.
+- The current model run instructions and validation methodology are documented in `reports/day4_baseline_model.md` and `reports/day5_validation_plan.md`.
+
+## Project progress and team coordination
+
+- [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md)
+- [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md)
+- [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
+- [Team Lead Worklog](docs/TEAM_LEAD_WORKLOG.md)
+
+## Evaluation principles
+
+Report bad-risk class precision, recall and F1, ROC-AUC, PR-AUC and balanced accuracy. Use stratified splitting and keep imputation/encoding inside the model pipeline and cross-validation folds to reduce leakage. The dataset is small, so treat results as exploratory and do not rely on accuracy alone.
+
+Do not publish performance values until the scripts have been executed and the generated outputs inspected. Any analysis involving Age and Sex requires careful fairness, legal and governance review.
 
 ## Team responsibilities
 
 | Member | Focus |
 |---|---|
-| Pranav Kumar | Team lead, coordination, quality review and integration |
+| Pranav Kumar | Team lead, coordination, repository review and integration |
 | Lav Kumar | Data engineering and EDA |
 | Divya | Statistical analysis and feature engineering |
-| Nivesh | ML and model development |
+| Nivesh | Machine-learning model development |
 | Sirisha | Explainability and documentation |
 | Raj | BI and dashboard |
 
-## GitHub workflow
-
-- `main` is the canonical, consolidated branch used for the shared project and daily progress.
-- Contributors may use their assigned branches while developing or testing work.
-- Only reviewed, non-duplicate and project-ready deliverables should be integrated into `main`.
-- Prefer a small pull request containing the final deliverable(s), rather than copying every intermediate file or maintaining member-wise folders.
-- Keep the contributor branches as working/history branches; they do not need to be merged wholesale or deleted after each update.
-- Do not push unreviewed or untested changes directly to `main`.
-- After integration, update the relevant report/tracker and this README when the project structure or workflow changes.
-
-## Project progress
-
-- [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md)
-- [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md)
-- [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
-
-The shared `main` branch contains the currently integrated analysis notebooks, baseline training and validation scripts, and project documentation. Check the Day 6 tracker for the latest contributor review and outstanding deliverables.
-
-## Model implementation
-
-The baseline model implementation is in `src/train_baseline.py`. The 5-fold validation workflow is in `src/validate_baseline.py`. Run instructions and methodology are documented in `reports/day4_baseline_model.md` and `reports/day5_validation_plan.md`.
-
-## Evaluation principles
-
-Report the bad-risk class precision, recall and F1, ROC-AUC, PR-AUC and balanced accuracy. Use stratified train/test splitting and keep imputation/encoding inside the model pipeline to avoid leakage. Treat all results as exploratory because the dataset is small. Do not publish scores until generated outputs have been verified.
-
 ## Responsible-use note
 
-The source includes Age and Sex. Any analysis involving these attributes requires careful fairness, legal and governance review. Do not use this educational project for real credit approval or denial.
+This repository is for educational analysis. It must not be used as the basis for actual credit approval or denial.

@@ -62,15 +62,19 @@ The Day 6 project-lead update, Divya's uploaded statistical-analysis and feature
 **Team lead note:** Keep contributor work on assigned branches and integrate through pull requests. Do not overwrite `main` directly or report unverified model results.
 
 
-## Repository structure decision — Day 6
+## Repository structure and selective integration update
 
-After comparing the current repository with the team's previous Axlero Group 3 repository, the project will use a consolidated, deliverable-first structure:
+The repository will follow the curated-main approach used in the Axlero-Group3 project:
 
-- `main` is the canonical shared project branch and should contain the reviewed project deliverables.
-- Organize notebooks, scripts and reports by their purpose, not by contributor name.
-- Contributor branches remain useful as temporary work/review branches, but they do not need to be merged wholesale.
-- Integrate only final, reviewed and non-duplicate deliverables through pull requests.
-- Keep one canonical copy of each report or notebook. The duplicate copies under `reports/nivesh/` were removed because the same five reports already exist at the project root.
-- Continue daily updates in the project tracker and keep the README aligned with the actual repository structure.
+- `main` is the consolidated workspace for canonical, reviewed deliverables.
+- Contributor branches remain available for development and contribution history.
+- The team lead reviews file-level changes and integrates only relevant, non-duplicative and sufficiently verified files through focused PRs.
+- Drafts, temporary experiments, duplicate copies, personal worklogs and unverified metrics are not copied into `main` by default.
+- The team-lead branch maintains coordination records and integration guidance; shared project instructions are added to `main` through a focused documentation PR.
 
-This keeps `main` clean and usable as the complete project workspace without losing the individual branch history.
+Added on the team-lead branch:
+- `docs/PROJECT_ARCHITECTURE.md`
+- `docs/PROJECT_INTEGRATION_CHECKLIST.md`
+- `docs/TEAM_LEAD_WORKLOG.md`
+
+The README has been revised to explain the shared-main policy, current integrated deliverables, branch responsibilities and documentation links. These documentation changes are proposed for `main` through a focused pull request; they are not considered merged until that PR is accepted.

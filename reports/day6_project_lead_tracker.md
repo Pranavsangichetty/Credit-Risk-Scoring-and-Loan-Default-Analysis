@@ -60,3 +60,17 @@ The Day 6 project-lead update, Divya's uploaded statistical-analysis and feature
 
 ---
 **Team lead note:** Keep contributor work on assigned branches and integrate through pull requests. Do not overwrite `main` directly or report unverified model results.
+
+
+## Repository structure decision — Day 6
+
+After comparing the current repository with the team's previous Axlero Group 3 repository, the project will use a consolidated, deliverable-first structure:
+
+- `main` is the canonical shared project branch and should contain the reviewed project deliverables.
+- Organize notebooks, scripts and reports by their purpose, not by contributor name.
+- Contributor branches remain useful as temporary work/review branches, but they do not need to be merged wholesale.
+- Integrate only final, reviewed and non-duplicate deliverables through pull requests.
+- Keep one canonical copy of each report or notebook. The duplicate copies under `reports/nivesh/` were removed because the same five reports already exist at the project root.
+- Continue daily updates in the project tracker and keep the README aligned with the actual repository structure.
+
+This keeps `main` clean and usable as the complete project workspace without losing the individual branch history.

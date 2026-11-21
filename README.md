@@ -33,15 +33,21 @@ File: `german_credit_data.csv`
 - `Nivesh243`: ML preprocessing and baseline modelling.
 - Contributor work should be committed to the assigned branch and reviewed through pull requests. Do not push unreviewed work directly to `main`.
 
-## Day 1–Day 4 progress
+## Project progress
 
-See [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md) for the initial milestone plan and [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md) for validation, explainability and integration tasks.
+- [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md)
+- [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md)
+- [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
 
-The baseline model implementation and run instructions are maintained on the `Nivesh243` branch in `src/train_baseline.py` and `reports/day4_baseline_model.md`.
+Divya's branch contains statistical-analysis and feature-engineering notebooks. Nivesh's branch contains the baseline training and validation scripts, requirements and ML documentation. Check the Day 6 tracker for the latest integration status and pending deliverables.
+
+## Model implementation
+
+The baseline model implementation and run instructions are maintained on the `Nivesh243` branch in `src/train_baseline.py` and `reports/day4_baseline_model.md`. The 5-fold validation workflow is in `src/validate_baseline.py` and `reports/day5_validation_plan.md`.
 
 ## Evaluation principles
 
-Report the bad-risk class precision, recall and F1, ROC-AUC, PR-AUC and balanced accuracy. Use stratified train/test splitting and keep imputation/encoding inside the model pipeline to avoid leakage. Treat all results as exploratory because the dataset is small.
+Report the bad-risk class precision, recall and F1, ROC-AUC, PR-AUC and balanced accuracy. Use stratified train/test splitting and keep imputation/encoding inside the model pipeline to avoid leakage. Treat all results as exploratory because the dataset is small. Do not publish scores until generated outputs have been verified.
 
 ## Responsible-use note
 

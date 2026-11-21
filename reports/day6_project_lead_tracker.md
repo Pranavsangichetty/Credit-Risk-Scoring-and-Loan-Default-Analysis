@@ -6,37 +6,44 @@
 
 ## Day 6 objective
 
-Review the latest work across contributor branches, document the current project status, integrate verified contributions through pull requests and keep `main` as the shared stable branch.
+Review contributor branches, document project status, integrate verified work through pull requests and keep `main` as the shared stable branch.
 
-## Project lead responsibilities completed today
+## Project lead work completed
 
-- Audited the current repository branches and compared each contributor branch with `main`.
-- Consolidated Nivesh's two accidental patch branches into the canonical `Nivesh243` branch in the preceding integration step.
-- Reviewed the latest Divya notebooks and identified the new feature-relationship, WoE/IV and important-feature summary deliverables.
-- Reviewed Nivesh's baseline training and 5-fold validation scripts, run instructions and model comparison report.
-- Prepared this Day 6 status tracker and updated the project README.
-- Identified branches with no new commits to avoid creating empty or misleading pull requests.
+- Audited the repository branches and compared contributor branches with `main`.
+- Consolidated Nivesh's two extra patch branches into the canonical `Nivesh243` branch.
+- Reviewed Divya's latest statistical-analysis and feature-engineering notebooks.
+- Reviewed Nivesh's baseline training and 5-fold validation scripts, requirements and ML documentation.
+- Prepared the Day 6 tracker and updated the project README.
+- Created and merged pull requests for the project-lead update and the verified Divya and Nivesh branch contributions.
+- Verified the final `main` tree contains the Day 6 tracker, Divya's six notebooks, her two PDF summaries, and Nivesh's training and validation scripts and reports.
 
-## Team progress review
+## Team progress and integration status
 
-| Member | Latest repository evidence | Day 6 status / next action |
+| Member | Latest repository evidence | Status |
 |---|---|---|
-| Pranav Kumar | Day 1–Day 5 trackers and repository coordination updates are present. | Day 6 audit, tracker and integration coordination documented. |
-| Lav Kumar | `lav-kumar` currently has no commits ahead of `main`; only the shared dataset is visible. | Cleaning script, cleaned dataset and data-quality report still need to be pushed. |
-| Divya | Six notebooks are present, including feature relationships, WoE/IV and important-feature summary; two PDF summaries are also present. | New analysis deliverables are available for integration review. Verify notebook execution and calculations before treating findings as final. |
-| Nivesh | Baseline training and validation scripts, requirements and day-wise ML documentation are present on `Nivesh243`. | Run scripts and commit generated metrics after checking outputs. The report currently marks numerical results as pending. |
-| Sirisha | `Sirisha` currently has no commits ahead of `main`; no distinct explainability/fairness deliverable is visible. | Push the explainability, feature-interpretation and fairness report. |
-| Raj | No `Rishu` branch is present in the current branch list. | Confirm the correct branch name and push the dashboard work or share its repository link. |
+| Pranav Kumar | Day 6 tracker and README update merged through PR #8. | Day 6 coordination, branch audit and integration completed. |
+| Lav Kumar | `lav-kumar` has no commits ahead of `main`; only the shared dataset is visible. | Cleaning script, cleaned dataset and data-quality report remain pending. |
+| Divya | Six notebooks and two PDF summaries merged through PR #9. The WoE/IV notebook has 18 executed code cells; the important-features notebook has 12 executed code cells. | Uploaded analysis integrated. Review calculations and interpretations before treating findings as final. |
+| Nivesh | ML documentation and current branch updates merged through PR #10. Training and 5-fold validation scripts are present in `main`. | Code and documentation integrated. Actual numerical evaluation results remain pending; no generated metrics were verified in the branch. |
+| Sirisha | `Sirisha` has no commits ahead of `main`; no distinct explainability/fairness deliverable is visible. | Explainability, feature interpretation and fairness report remain pending. |
+| Raj | No `Rishu` branch is present in the current branch list. | Confirm the correct branch name and share dashboard work or its repository link. |
 
-## Integration checklist
+## Pull requests merged on Day 6
 
-- [ ] Create and review a pull request for Divya's new notebooks and PDF summaries.
-- [ ] Create and review a pull request for Nivesh's latest ML documentation and code changes.
-- [ ] Merge only reviewed, non-conflicting contributions into `main`.
-- [ ] Confirm Lav's cleaning deliverables before integration.
-- [ ] Confirm Sirisha's explainability/fairness report before integration.
-- [ ] Confirm Raj's branch name and dashboard deliverable.
-- [ ] Verify the final `main` tree and links after merges.
+| PR | Description | Result |
+|---|---|---|
+| [#8](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/8) | Day 6 project lead tracker and README update | Merged |
+| [#10](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/10) | Nivesh's ML documentation and validation updates | Merged |
+| [#9](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/9) | Divya's statistical analysis and feature engineering notebooks | Merged |
+
+## Remaining integration checklist
+
+- [ ] Lav: push the cleaning script, cleaned dataset and data-quality report.
+- [ ] Nivesh: run the training and validation scripts, inspect generated outputs and commit actual metrics.
+- [ ] Sirisha: push the explainability, feature-interpretation and fairness report.
+- [ ] Raj: confirm branch name and push the dashboard deliverable.
+- [ ] Review all remaining contributions before merging them into `main`.
 
 ## ML validation guardrails
 
@@ -49,7 +56,7 @@ Review the latest work across contributor branches, document the current project
 
 ## Day 6 outcome
 
-The project lead review and integration plan are documented. Divya's and Nivesh's latest branch work is available for pull-request integration. Lav's, Sirisha's and Raj's outstanding deliverables remain dependent on their respective updates and verification.
+The Day 6 project-lead update, Divya's uploaded statistical-analysis and feature-engineering deliverables, and Nivesh's current ML code and documentation are integrated into `main`. Lav's cleaning deliverables, Sirisha's explainability/fairness report and Raj's dashboard contribution still require updates. Nivesh's actual model metrics also remain pending execution and verification.
 
 ---
 **Team lead note:** Keep contributor work on assigned branches and integrate through pull requests. Do not overwrite `main` directly or report unverified model results.

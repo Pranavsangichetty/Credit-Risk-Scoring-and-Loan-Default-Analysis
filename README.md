@@ -1,48 +1,43 @@
-# Credit Risk Scoring and Loan Default Analysis
+# Nivesh — Credit Risk ML Model Development Submission
 
-An exploratory machine-learning project using the German Credit dataset to study the supplied historical credit-risk label (`good` / `bad`).
+**Project:** Credit Risk Scoring and Loan Default Analysis  
+**Owner:** Nivesh — ML / Model Development  
+**Scope:** Day 4 baseline modelling and Day 5–6 validation deliverables
 
-> **Important:** The dataset target is a historical risk category, not a directly observed future default event with a defined prediction horizon. This project should not be described as a validated future-default prediction system or used to make real lending decisions.
+## Important status
+This package contains the executable validation workflow and documentation. It does **not** contain fabricated model scores or a substitute dataset. Run it against the project's actual `german_credit_data.csv` to create the final numerical results.
 
-## Dataset
+## Run
+Place `german_credit_data.csv` in the project root, then:
 
-File: `german_credit_data.csv`
+```bash
+python -m pip install -r requirements.txt
+python src/nivesh_ml_validation.py --data german_credit_data.csv
+```
 
-- 1,000 records
-- 10 analytical fields: Age, Sex, Job, Housing, Saving accounts, Checking account, Credit amount, Duration, Purpose and Risk
-- Target: `Risk` (`good` / `bad`)
-- Target encoding used by the baseline: `good = 0`, `bad = 1`
-- Missing markers appear in Saving accounts and Checking account; handle them explicitly.
-- The exported first column is a row index, not a predictive feature.
+## Models and validation
+- Logistic Regression (`class_weight="balanced"`)
+- Random Forest (500 trees; `class_weight="balanced"`)
+- Stratified 5-fold cross-validation
+- Out-of-fold predicted probabilities
+- Positive class: `Risk == "bad"` encoded as 1
+- Threshold analysis: 0.20 to 0.80
+- Subgroup analysis: `Sex` and age bands when available
 
-## Team responsibilities
+Preprocessing is part of each scikit-learn pipeline. Numeric columns are median-imputed and scaled; categorical columns are imputed with `Unknown` and one-hot encoded. Each fold fits preprocessing only on its training partition.
 
-| Member | Focus |
-|---|---|
-| Pranav Kumar | Team lead, coordination and integration |
-| Lav Kumar | Data engineering and EDA |
-| Divya | Statistical analysis and feature engineering |
-| Nivesh | ML and model development |
-| Sirisha | Explainability and documentation |
-| Raj | BI and dashboard |
+## Generated output
+- `outputs/cross_validation_metrics.json`
+- `outputs/model_comparison.csv`
+- `outputs/threshold_analysis.csv`
+- `outputs/subgroup_metrics.csv`
+- `outputs/oof_predictions.csv`
+- `outputs/roc_curve_5fold.png`
+- `outputs/precision_recall_curve_5fold.png`
+- `reports/Nivesh_Day4_Day6_ML_Results.md`
 
-## Branch workflow
+## Metric interpretation
+ROC-AUC measures ranking across thresholds. PR-AUC is reported as average precision. Bad-class precision measures the proportion of predicted-bad records that are actually labelled bad. Bad-class recall measures the proportion of actual bad-labelled records identified. F1 is the harmonic mean of precision and recall.
 
-- `main`: shared stable project branch.
-- `Pranavsangichetty`: project coordination, milestones and integration documentation.
-- `Nivesh243`: ML preprocessing and baseline modelling.
-- Contributor work should be committed to the assigned branch and reviewed through pull requests. Do not push unreviewed work directly to `main`.
-
-## Day 1–Day 4 progress
-
-See [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md) for the initial milestone plan and [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md) for validation, explainability and integration tasks.
-
-The baseline model implementation and run instructions are maintained on the `Nivesh243` branch in `src/train_baseline.py` and `reports/day4_baseline_model.md`.
-
-## Evaluation principles
-
-Report the bad-risk class precision, recall and F1, ROC-AUC, PR-AUC and balanced accuracy. Use stratified train/test splitting and keep imputation/encoding inside the model pipeline to avoid leakage. Treat all results as exploratory because the dataset is small.
-
-## Responsible-use note
-
-The source includes Age and Sex. Any analysis involving these attributes requires careful fairness, legal and governance review. Do not use this educational project for real credit approval or denial.
+## Limitations
+The supplied `Risk` field is a historical good/bad label. Unless the dataset documentation defines an observed future-default outcome and observation horizon, results must be described as historical credit-risk classification, not proven future-default prediction. Subgroup metrics are descriptive and do not establish fairness or legal suitability.

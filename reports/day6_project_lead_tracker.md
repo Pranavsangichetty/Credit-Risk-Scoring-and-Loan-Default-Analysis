@@ -78,3 +78,29 @@ Added on the team-lead branch:
 - `docs/TEAM_LEAD_WORKLOG.md`
 
 The README has been revised to explain the shared-main policy, current integrated deliverables, branch responsibilities and documentation links. These documentation changes are proposed for `main` through a focused pull request; they are not considered merged until that PR is accepted.
+
+
+## Final Day 6 repository audit — 22 November 2026
+
+This addendum supersedes the earlier pending-status table above where newer merged work is recorded.
+
+| Member | Latest verified status | Remaining work |
+|---|---|---|
+| Pranav Kumar | Project-lead coordination, integration workflow and documentation are present in `main`. | Continue final review and coordinate outstanding model, explainability and dashboard work. |
+| Lav Kumar | Cleaning script, cleaned 1,000 × 10 dataset, transformation log, Day 5 data-quality handoff and Day 6 feature inventory/binning proposal are integrated through PRs #14 and #15. | Day 6 cleaning/data-quality handoff is complete. Proposed bins remain proposals and should only be applied after validation. |
+| Divya | Six analysis/feature-engineering notebooks and earlier PDF summaries are integrated through PR #9. Day 6 WoE/IV findings PDF is now integrated through PR #16. | Day 6 WoE/IV handoff is complete. Ensure any reported validation score is reproducible and clearly tied to its evaluation method. |
+| Nivesh | Training and 5-fold validation scripts, requirements and validation instructions are integrated through PR #10. | **Still pending:** execute the scripts, commit actual Logistic Regression and Random Forest metrics, threshold comparison and subgroup results. No generated metrics file is present in the current `main` tree. |
+| Sirisha | An open PR #13 contains feature documentation and a generic SHAP methodology document. | **Still pending:** actual SHAP analysis on a trained model, SHAP plots/values, evidence-based feature interpretation and a documented fairness/subgroup review. PR #13 is not merged because its README replacement and duplicate raw dataset are not suitable for curated `main`, and the explainability document is still prospective rather than completed analysis. |
+| Raj / Rishuraj | No Raj/Rishu contributor branch or dashboard deliverable is visible in the current repository branch list/tree. | **Still pending:** confirm the correct branch/repository and submit the BI dashboard with its source file and concise insight summary. |
+
+### Day 6 integration decisions
+
+- PR #14 and PR #15 from Lav are merged. The cleaning/data-quality deliverables are in `main`.
+- PR #16 from Divya is merged. `day6_woe_iv_findings_summary.pdf` is in `main`.
+- PR #13 from Sirisha remains open and unmerged pending completed explainability/fairness work and a focused, corrected submission.
+- No new dashboard files were integrated because no Raj branch or dashboard artifact was found.
+- Nivesh's scripts are integrated, but scripts and run instructions are not evidence that model evaluation has been executed. Do not report metrics until the output file is generated and reviewed.
+
+### Final status
+
+Lav and Divya have completed their assigned Day 6 deliverables and their required files are integrated into `main`. Pranav's coordination/integration work is complete. Nivesh, Sirisha and Raj still have the specific work listed above. This audit records repository evidence only; it does not infer uncommitted local work.

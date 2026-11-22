@@ -46,6 +46,7 @@ From the repository root:
 ```bash
 python -m pip install -r requirements.txt
 python src/validate_baseline.py --data german_credit_data.csv
+python src/build_ml_report.py
 ```
 
 The script writes:
@@ -56,8 +57,19 @@ It prints the headline ROC-AUC, PR-AUC and threshold-0.50 metrics for both model
 ## Model comparison rule
 Compare models using ROC-AUC and PR-AUC together with bad-class precision, recall, F1 and balanced accuracy. Do not choose a model using accuracy alone. The operational importance of false negatives and false positives should be discussed with the project team.
 
-## Results
-Populate the final comparison with the values produced by the executed validation script. Do not enter estimated or illustrative scores as actual results.
+## Execution and generated results
+The branch now includes an automated GitHub Actions workflow at `.github/workflows/nivesh-ml-execution.yml`. It runs the hold-out baseline training, stratified 5-fold out-of-fold validation, and report builder on pushes to `Nivesh243` affecting the ML files, or when manually dispatched from the Actions tab.
+
+After a successful workflow run, the generated outputs are committed back to `Nivesh243`:
+- `outputs/metrics.json`
+- `outputs/holdout_predictions.csv`
+- `outputs/cross_validation_metrics.json`
+- `outputs/model_comparison.csv`
+- `outputs/threshold_analysis.csv`
+- `outputs/subgroup_metrics.csv`
+- `reports/nivesh/day5_ml_execution_results.md`
+
+The result report is generated directly from the executed JSON metrics. Do not enter estimated or illustrative scores as actual results. Confirm the Actions run completed successfully and that the generated files appear in the branch before marking execution complete.
 
 | Metric | Logistic Regression | Random Forest |
 |---|---:|---:|

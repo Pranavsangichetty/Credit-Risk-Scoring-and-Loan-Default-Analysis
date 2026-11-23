@@ -5,6 +5,8 @@
 **Date:** 23 November 2026  
 **Schedule note:** Day 7 was observed as a holiday; work resumes on Day 8.
 
+**Day 8 integration commit:** `28019a126004bb8becbc253d403d167caf4f0e13` (PR #22 merged).
+
 ## Day 8 objective
 
 Complete the team-lead review, bring the personal team-lead branch in sync with the shared project, integrate verified ML execution evidence selectively, and record the remaining validation and explainability work.
@@ -14,17 +16,17 @@ Complete the team-lead review, bring the personal team-lead branch in sync with 
 - Shared branch: `main`
 - Main commit at the start of Day 8 review: `3338c33973bf207cdc8d8e19f9ee35cb5afa5e45`
 - Team-lead branch: `Pranavsangichetty`
-- The team-lead branch was 21 commits behind `main` with no unique commits ahead. It has now been fast-forwarded to the current main baseline before Day 8 updates.
+- The team-lead branch was 21 commits behind `main` with no unique commits ahead. It was fast-forwarded to the current main baseline before Day 8 updates.
 - Keep `main` as the curated shared project. Integrate selected reviewed files through a focused PR, not by merging entire contributor branches.
 
 ## Team status and Day 8 review
 
 | Member | Repository evidence reviewed | Day 8 status |
 |---|---|---|
-| **Pranav Kumar** | Team-lead branch synchronized with main; latest PRs and repository tree reviewed; Day 8 tracker and integration documentation updated. | Team-lead review and documentation prepared on `Pranavsangichetty`; submit through this focused PR. |
+| **Pranav Kumar** | Team-lead branch synchronized with main; latest PRs and repository tree reviewed; Day 8 tracker and integration documentation updated. | Team-lead review and documentation integrated through PR #22. |
 | **Lav Kumar** | PR [#21](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/21) merged. Cleaning pipeline quality checks are in main alongside `src/clean_data.py`, the cleaned dataset and data-quality handoff. | Day 8 data-engineering handoff integrated. Any future binning remains subject to validation. |
 | **Divya** | PR [#16](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/16) merged with the Day 6 WoE/IV findings summary; earlier analysis notebooks and summaries are also in main. | Deliverables are integrated. Final feature-level calculation and interpretation review should be recorded before calling all findings fully validated. |
-| **Nivesh** | PR [#20](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/20) remains open and is not mergeable as submitted. GitHub Actions run [#45045131089](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/actions/runs/45045131089) completed successfully. The generated hold-out and 5-fold outputs were inspected on `Nivesh243`. | Model execution and result generation are complete on the contributor branch. Selected outputs and the report builder are being integrated through this curated team-lead change. The wholesale PR is not being merged because it replaces the canonical README and includes redundant material. |
+| **Nivesh** | PR [#20](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/20) remains open and is not mergeable as submitted. GitHub Actions run [#45045131089](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/actions/runs/45045131089) completed successfully. The generated hold-out and 5-fold outputs were inspected on `Nivesh243`. | Model execution and result generation are complete on the contributor branch. Selected outputs and the report builder were integrated through PR [#22](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/22). The wholesale PR #20 was closed unmerged because it replaces the canonical README and includes redundant material. |
 | **Sirisha** | Curated documentation merged through PR [#18](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/18): feature dictionary/fairness notes and SHAP methodology. | Documentation is integrated. Actual SHAP values/plots, model-specific feature interpretations and completed fairness analysis remain pending. |
 | **Raj / Rishuraj** | PR [#19](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/19) merged with `dashboard/credit_risk_dashboard.twbx` and `reports/raj_bi_dashboard_insights.md`. | Tableau dashboard and insight handoff integrated. |
 
@@ -66,10 +68,10 @@ These are exploratory results for the supplied historical `good` / `bad` label. 
 - [x] Verify Lav's PR #21 and Raj's PR #19 are merged.
 - [x] Verify Sirisha's curated PR #18 is merged and record remaining analysis.
 - [x] Verify Nivesh's successful workflow and inspect actual generated outputs.
-- [ ] Merge this curated Day 8 team-lead PR into main after review.
+- [x] Merge curated Day 8 team-lead integration PR #22 into main.
 - [ ] Complete Divya's final calculation/interpretation validation.
 - [ ] Obtain Sirisha's actual SHAP and fairness outputs.
-- [ ] Re-run final repository checks after all accepted contributions are integrated.
+- [x] Verify PR #22 is merged and the main branch contains the Day 8 tracker and selected ML outputs.
 
 ## Responsible-use and evaluation guardrails
 

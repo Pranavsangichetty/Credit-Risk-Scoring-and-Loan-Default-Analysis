@@ -45,3 +45,19 @@ A contributor branch is a development and attribution space. The shared `main` b
 ## Important modelling caveat
 
 The German Credit dataset target is a historical good/bad risk label, not a directly observed future default event with a defined prediction horizon. Model findings are exploratory and must not be used for real lending decisions.
+
+
+## Day 8 — 23 November 2026
+
+- Treated Day 7 as a holiday and resumed project work on Day 8.
+- Audited the live repository branches, pull requests and main tree. The `Pranavsangichetty` branch was 21 commits behind `main` and had no unique commits ahead; fast-forwarded it to the current main baseline before adding Day 8 work.
+- Verified Lav's cleaning pipeline quality-check PR #21 and Raj's Tableau dashboard PR #19 are merged.
+- Verified Sirisha's curated documentation PR #18 is merged; recorded that actual SHAP outputs and completed fairness analysis are still pending.
+- Reviewed Nivesh's PR #20 and successful GitHub Actions run #45045131089. Inspected the generated 80:20 hold-out metrics, stratified 5-fold out-of-fold metrics, threshold analysis, subgroup metrics and generated report.
+- Chose a curated integration rather than merging PR #20 wholesale because it replaces the canonical README and includes redundant contributor-specific material.
+- Added selected ML execution outputs, the generated results report and its report-generation script to the team-lead branch for a focused PR.
+- Kept all performance claims tied to generated result files and preserved the historical good/bad target limitation.
+
+## Day 8 integration rule
+
+The team-lead branch is updated first. The shared `main` branch receives only the reviewed Day 8 tracker, coordination documentation and selected reproducible ML outputs through the focused pull request. Actual SHAP/fairness work and final WoE/IV verification remain open until evidence is submitted.

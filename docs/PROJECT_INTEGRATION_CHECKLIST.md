@@ -62,3 +62,23 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 | Date | Branch / PR | Files accepted | Files left out and reason | Decision |
 |---|---|---|---|---|
 | 2026-11-21 | PR #9 and PR #10 | Divya's analysis notebooks/PDF summaries; Nivesh's ML scripts and supporting documentation | Keep future drafts, duplicate copies and unverified metrics out | Merged; continue validation |
+
+
+## Day 8 review — 23 November 2026
+
+| Member / area | Latest evidence | Current integration status |
+|---|---|---|
+| Lav — data engineering | PR #21 merged; cleaning pipeline quality checks, cleaned dataset and handoff are in main. | Integrated; retain binning recommendations as proposals until validated. |
+| Divya — WoE/IV | PR #16 merged with the Day 6 findings summary and earlier analysis notebooks. | Integrated; final feature-level calculation/interpretation review should be recorded. |
+| Nivesh — ML | Successful Actions run #45045131089; actual hold-out and stratified 5-fold outputs generated on Nivesh243. | Curated results are proposed for main; do not merge PR #20 wholesale because its README replacement is not suitable for the shared branch. |
+| Sirisha — explainability | PR #18 merged with feature dictionary/fairness notes and SHAP methodology. | Documentation integrated; actual SHAP plots/values and completed fairness analysis remain pending. |
+| Raj — dashboard | PR #19 merged with Tableau dashboard and insight summary. | Integrated. |
+| Pranav — project integration | Day 8 audit and tracker prepared on the synchronized team-lead branch. | Submit focused PR; verify main after merge. |
+
+### Day 8 selective integration record
+
+- Accept only the executed metrics, hold-out predictions, threshold/subgroup summaries, generated ML results report and the report-generation script from Nivesh's branch.
+- Preserve main's canonical README; exclude the contributor README replacement.
+- Keep the contributor-specific Actions workflow and redundant validation script on Nivesh's branch.
+- Add `tabulate` to the existing requirements rather than replacing existing dependencies.
+- Do not mark SHAP/fairness or final WoE/IV review complete without evidence.

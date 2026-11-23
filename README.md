@@ -82,5 +82,5 @@ This repository is for educational analysis. It must not be used as the basis fo
 - Lav's cleaning pipeline quality checks are integrated through PR #21.
 - Raj's Tableau dashboard and insight summary are integrated through PR #19.
 - Sirisha's curated feature dictionary and SHAP methodology documentation are integrated through PR #18; actual SHAP/fairness outputs remain pending.
-- Nivesh's executed hold-out and stratified 5-fold model results, supporting CSVs and generated report are included in the Day 8 curated integration.
+- Nivesh's executed hold-out and stratified 5-fold model results, supporting CSVs and generated report are integrated through PR #22.
 - See [Day 8 Project Lead Tracker](reports/day8_project_lead_tracker.md) and [Nivesh's executed ML results](reports/nivesh/day5_ml_execution_results.md).

@@ -61,3 +61,11 @@ The German Credit dataset target is a historical good/bad risk label, not a dire
 ## Day 8 integration rule
 
 The team-lead branch is updated first. The shared `main` branch receives only the reviewed Day 8 tracker, coordination documentation and selected reproducible ML outputs through the focused pull request. Actual SHAP/fairness work and final WoE/IV verification remain open until evidence is submitted.
+
+
+### Day 8 integration completion
+
+- Opened and merged focused PR [#22](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/22) into `main` (merge commit `28019a126004bb8becbc253d403d167caf4f0e13`).
+- Integrated the Day 8 tracker, updated README/worklog/checklist, Nivesh's generated hold-out and 5-fold metrics, threshold/subgroup CSVs, executed results report and report builder.
+- Closed Nivesh's original PR #20 without merging; PR #22 is the curated replacement and preserves the canonical README.
+- Re-synchronized `Pranavsangichetty` with the merged main baseline before recording this completion update.

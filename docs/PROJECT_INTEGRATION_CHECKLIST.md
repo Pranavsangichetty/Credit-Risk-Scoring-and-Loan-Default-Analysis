@@ -70,10 +70,10 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 |---|---|---|
 | Lav — data engineering | PR #21 merged; cleaning pipeline quality checks, cleaned dataset and handoff are in main. | Integrated; retain binning recommendations as proposals until validated. |
 | Divya — WoE/IV | PR #16 merged with the Day 6 findings summary and earlier analysis notebooks. | Integrated; final feature-level calculation/interpretation review should be recorded. |
-| Nivesh — ML | Successful Actions run #45045131089; actual hold-out and stratified 5-fold outputs generated on Nivesh243. | Curated results are proposed for main; do not merge PR #20 wholesale because its README replacement is not suitable for the shared branch. |
+| Nivesh — ML | Successful Actions run #45045131089; actual hold-out and stratified 5-fold outputs generated on Nivesh243. | Selected outputs/report integrated through PR #22; original PR #20 closed unmerged to preserve the canonical README. |
 | Sirisha — explainability | PR #18 merged with feature dictionary/fairness notes and SHAP methodology. | Documentation integrated; actual SHAP plots/values and completed fairness analysis remain pending. |
 | Raj — dashboard | PR #19 merged with Tableau dashboard and insight summary. | Integrated. |
-| Pranav — project integration | Day 8 audit and tracker prepared on the synchronized team-lead branch. | Submit focused PR; verify main after merge. |
+| Pranav — project integration | Day 8 audit, tracker and selected ML outputs merged through PR #22. | Day 8 team-lead integration complete; continue coordinating remaining analysis. |
 
 ### Day 8 selective integration record
 
@@ -82,3 +82,6 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 - Keep the contributor-specific Actions workflow and redundant validation script on Nivesh's branch.
 - Add `tabulate` to the existing requirements rather than replacing existing dependencies.
 - Do not mark SHAP/fairness or final WoE/IV review complete without evidence.
+
+
+| 2026-11-23 | PR #22 | Day 8 tracker, team-lead documentation, selected executed ML outputs/report builder | Excluded Nivesh's README replacement, contributor-only Actions workflow and duplicate validation script | Merged as `28019a126004bb8becbc253d403d167caf4f0e13` |

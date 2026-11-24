@@ -46,12 +46,12 @@ Contributor branches remain useful for attribution and development history. They
 
 ## Current release checks
 
-- [ ] Lav: reproducible cleaning script, cleaned-data description and data-quality report.
-- [ ] Divya: verify statistical analysis and WoE/IV calculations; retain only canonical analysis deliverables.
-- [ ] Nivesh: execute training and validation, inspect outputs and publish actual metrics.
-- [ ] Sirisha: explainability, feature interpretation and fairness report.
-- [ ] Raj: confirm branch name and submit the agreed dashboard deliverable.
-- [ ] Pranav: review diffs, coordinate interfaces, maintain README/worklog and manage PR integration.
+- [x] Lav: cleaning workflow, cleaned-data checks and Day 8 data-quality validation report (PR #25); obtain separate Day 9 sign-off if further model-input audit was performed.
+- [x] Divya: updated WoE/IV tables and feature-importance notebook integrated (PR #26); independently review fold isolation and feature-selection timing.
+- [ ] Nivesh: final Day 9 reproducibility, threshold recommendation, preprocessing-leakage review and model-validation sign-off.
+- [ ] Sirisha: actual model-specific SHAP outputs, plots, feature interpretations and completed fairness report.
+- [ ] Raj: Day 9 dashboard consistency review against current model outputs and updated evidence if changes are required.
+- [x] Pranav: audit main and team-lead branch, fast-forward personal branch and prepare Day 9 tracker/documentation PR.
 
 ## Model-quality guardrails
 
@@ -62,26 +62,7 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 | Date | Branch / PR | Files accepted | Files left out and reason | Decision |
 |---|---|---|---|---|
 | 2026-11-21 | PR #9 and PR #10 | Divya's analysis notebooks/PDF summaries; Nivesh's ML scripts and supporting documentation | Keep future drafts, duplicate copies and unverified metrics out | Merged; continue validation |
-
-
-## Day 8 review — 23 November 2026
-
-| Member / area | Latest evidence | Current integration status |
-|---|---|---|
-| Lav — data engineering | PR #21 merged; cleaning pipeline quality checks, cleaned dataset and handoff are in main. | Integrated; retain binning recommendations as proposals until validated. |
-| Divya — WoE/IV | PR #16 merged with the Day 6 findings summary and earlier analysis notebooks. | Integrated; final feature-level calculation/interpretation review should be recorded. |
-| Nivesh — ML | Successful Actions run #45045131089; actual hold-out and stratified 5-fold outputs generated on Nivesh243. | Selected outputs/report integrated through PR #22; original PR #20 closed unmerged to preserve the canonical README. |
-| Sirisha — explainability | PR #18 merged with feature dictionary/fairness notes and SHAP methodology. | Documentation integrated; actual SHAP plots/values and completed fairness analysis remain pending. |
-| Raj — dashboard | PR #19 merged with Tableau dashboard and insight summary. | Integrated. |
-| Pranav — project integration | Day 8 audit, tracker and selected ML outputs merged through PR #22. | Day 8 team-lead integration complete; continue coordinating remaining analysis. |
-
-### Day 8 selective integration record
-
-- Accept only the executed metrics, hold-out predictions, threshold/subgroup summaries, generated ML results report and the report-generation script from Nivesh's branch.
-- Preserve main's canonical README; exclude the contributor README replacement.
-- Keep the contributor-specific Actions workflow and redundant validation script on Nivesh's branch.
-- Add `tabulate` to the existing requirements rather than replacing existing dependencies.
-- Do not mark SHAP/fairness or final WoE/IV review complete without evidence.
-
-
-| 2026-11-23 | PR #22 | Day 8 tracker, team-lead documentation, selected executed ML outputs/report builder | Excluded Nivesh's README replacement, contributor-only Actions workflow and duplicate validation script | Merged as `28019a126004bb8becbc253d403d167caf4f0e13` |
+| 2026-11-23 | PR #22 | Day 8 tracker, team-lead documentation, selected executed ML outputs/report builder | Excluded Nivesh's README replacement, contributor-only Actions workflow and duplicate validation script | Merged |
+| 2026-11-24 | PR #25 | Lav's Day 8 data-quality validation report | No additional Day 9 sign-off evidenced in reviewed PR list | Merged |
+| 2026-11-24 | PR #26 | Updated WoE/IV and feature-importance notebooks; engineered and WoE datasets; IV tables | No SHAP plots/fairness report or Day 9 model-validation rerun in this PR | Merged |
+| 2026-11-24 | Team-lead Day 9 PR (to be opened) | Day 9 tracker, README progress link and coordination checklist/worklog updates | Keep personal worklog on team-lead branch; no unverified analysis artifacts | Prepared for review |

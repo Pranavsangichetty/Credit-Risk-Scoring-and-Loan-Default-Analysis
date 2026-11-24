@@ -45,14 +45,18 @@ Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) 
 - Divya's statistical-analysis and feature-engineering notebooks and PDF summaries are integrated through PR #9.
 - Nivesh's baseline training/validation scripts and supporting ML documentation are integrated through PR #10.
 - Day 6 project-lead coordination and integration status are recorded through PR #11.
+- Day 8 selected ML execution outputs, metrics, threshold/subgroup summaries and report builder are integrated through PR #22.
+- Lav's data-quality validation report is integrated through PR #25.
+- Day 9 WoE/IV tables and feature-importance notebook updates are integrated through PR #26.
 - Training and validation code is available under `src/`; dependencies are in `requirements.txt`.
-- The current model run instructions and validation methodology are documented in `reports/day4_baseline_model.md` and `reports/day5_validation_plan.md`.
 
 ## Project progress and team coordination
 
 - [Day 1–Day 4 Project Lead Tracker](reports/day1-day4_project_lead_tracker.md)
 - [Day 5 Project Lead Tracker](reports/day5_project_lead_tracker.md)
 - [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
+- [Day 8 Project Lead Tracker](reports/day8_project_lead_tracker.md)
+- [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md)
 - [Team Lead Worklog](docs/TEAM_LEAD_WORKLOG.md)
 
 ## Evaluation principles
@@ -76,7 +80,6 @@ Do not publish performance values until the scripts have been executed and the g
 
 This repository is for educational analysis. It must not be used as the basis for actual credit approval or denial.
 
-
 ## Day 8 update — 23 November 2026
 
 - Lav's cleaning pipeline quality checks are integrated through PR #21.
@@ -84,3 +87,12 @@ This repository is for educational analysis. It must not be used as the basis fo
 - Sirisha's curated feature dictionary and SHAP methodology documentation are integrated through PR #18; actual SHAP/fairness outputs remain pending.
 - Nivesh's executed hold-out and stratified 5-fold model results, supporting CSVs and generated report are integrated through PR #22.
 - See [Day 8 Project Lead Tracker](reports/day8_project_lead_tracker.md) and [Nivesh's executed ML results](reports/nivesh/day5_ml_execution_results.md).
+
+## Day 9 update — 24 November 2026
+
+- Fast-forwarded the team-lead branch to the current main baseline before preparing Day 9 documentation.
+- Lav's data-quality validation report is integrated through PR #25.
+- Divya's updated WoE/IV and important-feature notebooks and processed tables are integrated through PR #26.
+- The feature summary notebook reports a 0.774 ROC-AUC for its repeated stratified 5-fold feature analysis; this is separate from the Logistic Regression/Random Forest benchmark outputs and should be treated as exploratory pending leakage review.
+- Actual SHAP plots/fairness analysis, final Day 9 model-validation sign-off and dashboard review remain open pending evidence.
+- See [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md).

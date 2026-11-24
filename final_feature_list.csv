@@ -1,0 +1,9 @@
+Column,Feature,Tier,IV,IV 95% CI,WoE stability,p-value,Decision,Reason,WoE column
+checking_status,Checking account status,Tier 1 - Critical,0.662,0.467 to 0.919,0.94,0.0,Keep,"Above noise floor, stable pattern and significant in the model",woe_checking_status
+duration_bin,Duration,Tier 2 - Important,0.23,0.128 to 0.382,0.925,0.0007,Keep,"Above noise floor, stable pattern and significant in the model",woe_duration_bin
+saving_status,Saving account status,Tier 2 - Important,0.189,0.100 to 0.344,0.817,0.0001,Keep,"Above noise floor, stable pattern and significant in the model",woe_saving_status
+credit_bin,Credit amount,Tier 2 - Important,0.142,0.062 to 0.286,0.88,0.0,Keep,"Above noise floor, stable pattern and significant in the model",woe_credit_bin
+age_bin,Age,Tier 3 - Supporting,0.093,0.033 to 0.204,0.891,0.0022,Keep,"Above noise floor, stable pattern and significant in the model",woe_age_bin
+housing,Housing,Tier 3 - Supporting,0.084,0.025 to 0.174,0.801,0.0253,Keep,"Above noise floor, stable pattern and significant in the model",woe_housing
+payment_bin,Monthly payment,Tier 2 - Important,0.077,0.023 to 0.171,0.899,0.0,Keep,"Above noise floor, stable pattern and significant in the model",woe_payment_bin
+purpose_group,Purpose group,Tier 3 - Supporting,0.066,0.026 to 0.172,0.557,0.0226,Keep - monitor,"Small, consistent gain, but its risk pattern is unstable across samples; recheck when more data is available",woe_purpose_group

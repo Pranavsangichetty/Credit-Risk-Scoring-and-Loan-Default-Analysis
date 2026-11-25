@@ -1,0 +1,234 @@
+{
+  "validation": "5-fold stratified out-of-fold predictions",
+  "random_state": 42,
+  "rows": 1000,
+  "target_mapping": {
+    "good": 0,
+    "bad": 1
+  },
+  "models": {
+    "logistic_regression": {
+      "roc_auc": 0.7409666666666667,
+      "pr_auc_average_precision": 0.5462404935312329,
+      "default_threshold_metrics": {
+        "threshold": 0.5,
+        "precision_bad": 0.4841628959276018,
+        "recall_bad": 0.7133333333333334,
+        "f1_bad": 0.5768194070080862,
+        "balanced_accuracy": 0.6938095238095239
+      },
+      "threshold_analysis": [
+        {
+          "threshold": 0.25,
+          "precision_bad": 0.37170596393897365,
+          "recall_bad": 0.8933333333333333,
+          "f1_bad": 0.524975514201763,
+          "balanced_accuracy": 0.6230952380952381
+        },
+        {
+          "threshold": 0.35,
+          "precision_bad": 0.42244224422442245,
+          "recall_bad": 0.8533333333333334,
+          "f1_bad": 0.565121412803532,
+          "balanced_accuracy": 0.6766666666666667
+        },
+        {
+          "threshold": 0.45,
+          "precision_bad": 0.4601593625498008,
+          "recall_bad": 0.77,
+          "f1_bad": 0.5760598503740648,
+          "balanced_accuracy": 0.6914285714285715
+        },
+        {
+          "threshold": 0.5,
+          "precision_bad": 0.4841628959276018,
+          "recall_bad": 0.7133333333333334,
+          "f1_bad": 0.5768194070080862,
+          "balanced_accuracy": 0.6938095238095239
+        },
+        {
+          "threshold": 0.6,
+          "precision_bad": 0.5179640718562875,
+          "recall_bad": 0.5766666666666667,
+          "f1_bad": 0.5457413249211357,
+          "balanced_accuracy": 0.6733333333333333
+        },
+        {
+          "threshold": 0.7,
+          "precision_bad": 0.5803108808290155,
+          "recall_bad": 0.37333333333333335,
+          "f1_bad": 0.4543610547667343,
+          "balanced_accuracy": 0.6288095238095238
+        }
+      ],
+      "subgroup_metrics_at_0_5": [
+        {
+          "dimension": "sex",
+          "group": "female",
+          "n": 310,
+          "bad_label_count": 109,
+          "bad_precision": 0.524390243902439,
+          "bad_recall": 0.7889908256880734,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "sex",
+          "group": "male",
+          "n": 690,
+          "bad_label_count": 191,
+          "bad_precision": 0.460431654676259,
+          "bad_recall": 0.6701570680628273,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "18-25",
+          "n": 190,
+          "bad_label_count": 80,
+          "bad_precision": 0.5384615384615384,
+          "bad_recall": 0.7875,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "26-35",
+          "n": 398,
+          "bad_label_count": 118,
+          "bad_precision": 0.4722222222222222,
+          "bad_recall": 0.7203389830508474,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "36-50",
+          "n": 299,
+          "bad_label_count": 71,
+          "bad_precision": 0.43119266055045874,
+          "bad_recall": 0.6619718309859155,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "51+",
+          "n": 113,
+          "bad_label_count": 31,
+          "bad_precision": 0.5277777777777778,
+          "bad_recall": 0.6129032258064516,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        }
+      ]
+    },
+    "random_forest": {
+      "roc_auc": 0.7606952380952381,
+      "pr_auc_average_precision": 0.5974818207396284,
+      "default_threshold_metrics": {
+        "threshold": 0.5,
+        "precision_bad": 0.5115681233933161,
+        "recall_bad": 0.6633333333333333,
+        "f1_bad": 0.5776487663280117,
+        "balanced_accuracy": 0.6959523809523809
+      },
+      "threshold_analysis": [
+        {
+          "threshold": 0.25,
+          "precision_bad": 0.3691460055096419,
+          "recall_bad": 0.8933333333333333,
+          "f1_bad": 0.5224171539961013,
+          "balanced_accuracy": 0.6195238095238095
+        },
+        {
+          "threshold": 0.35,
+          "precision_bad": 0.42546063651591287,
+          "recall_bad": 0.8466666666666667,
+          "f1_bad": 0.5663322185061316,
+          "balanced_accuracy": 0.6783333333333333
+        },
+        {
+          "threshold": 0.45,
+          "precision_bad": 0.48344370860927155,
+          "recall_bad": 0.73,
+          "f1_bad": 0.5816733067729084,
+          "balanced_accuracy": 0.6978571428571428
+        },
+        {
+          "threshold": 0.5,
+          "precision_bad": 0.5115681233933161,
+          "recall_bad": 0.6633333333333333,
+          "f1_bad": 0.5776487663280117,
+          "balanced_accuracy": 0.6959523809523809
+        },
+        {
+          "threshold": 0.6,
+          "precision_bad": 0.58,
+          "recall_bad": 0.48333333333333334,
+          "f1_bad": 0.5272727272727272,
+          "balanced_accuracy": 0.6666666666666666
+        },
+        {
+          "threshold": 0.7,
+          "precision_bad": 0.72,
+          "recall_bad": 0.3,
+          "f1_bad": 0.4235294117647059,
+          "balanced_accuracy": 0.625
+        }
+      ],
+      "subgroup_metrics_at_0_5": [
+        {
+          "dimension": "sex",
+          "group": "female",
+          "n": 310,
+          "bad_label_count": 109,
+          "bad_precision": 0.5106382978723404,
+          "bad_recall": 0.6605504587155964,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "sex",
+          "group": "male",
+          "n": 690,
+          "bad_label_count": 191,
+          "bad_precision": 0.5120967741935484,
+          "bad_recall": 0.6649214659685864,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "18-25",
+          "n": 190,
+          "bad_label_count": 80,
+          "bad_precision": 0.5084745762711864,
+          "bad_recall": 0.75,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "26-35",
+          "n": 398,
+          "bad_label_count": 118,
+          "bad_precision": 0.5211267605633803,
+          "bad_recall": 0.6271186440677966,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "36-50",
+          "n": 299,
+          "bad_label_count": 71,
+          "bad_precision": 0.5227272727272727,
+          "bad_recall": 0.647887323943662,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        },
+        {
+          "dimension": "age_band",
+          "group": "51+",
+          "n": 113,
+          "bad_label_count": 31,
+          "bad_precision": 0.4634146341463415,
+          "bad_recall": 0.6129032258064516,
+          "note": "Interpret cautiously; small subgroup counts are unstable."
+        }
+      ]
+    }
+  },
+  "interpretation": "Exploratory cross-validation for the supplied historical good/bad risk label; not validated future-default prediction. Thresholds are diagnostic and must not be treated as lending policy."
+}

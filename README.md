@@ -57,6 +57,7 @@ Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) 
 - [Day 6 Project Lead Tracker](reports/day6_project_lead_tracker.md)
 - [Day 8 Project Lead Tracker](reports/day8_project_lead_tracker.md)
 - [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md)
+- [Day 10–11 Final Integration Tracker](reports/day10_day11_final_integration_tracker.md)
 - [Team Lead Worklog](docs/TEAM_LEAD_WORKLOG.md)
 
 ## Evaluation principles
@@ -96,3 +97,12 @@ This repository is for educational analysis. It must not be used as the basis fo
 - The feature summary notebook reports a 0.774 ROC-AUC for its repeated stratified 5-fold feature analysis; this is separate from the Logistic Regression/Random Forest benchmark outputs and should be treated as exploratory pending leakage review.
 - Actual SHAP plots/fairness analysis, final Day 9 model-validation sign-off and dashboard review remain open pending evidence.
 - See [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md).
+
+
+## Day 10–11 update — 25–26 November 2026
+
+- Lav's Day 10 feature-engineering/data-output validation report is integrated through PR #29. It verifies row counts, target consistency and WoE output completeness, while explicitly noting that model metrics and all WoE/IV calculations were not independently recomputed.
+- The reported 0.774 ROC-AUC from the feature-analysis notebook remains preliminary because feature transformations and selection were performed before cross-validation; fold-isolated evaluation is still required.
+- Sirisha's PR #28 contains SHAP and Age/Sex subgroup outputs but remains open for revision. Its fairness metrics are computed on the full 1,000-row dataset and are descriptive, and the scripts depend on a Random Forest model artifact not present in main. The PR also includes a duplicate raw dataset and replaces this canonical README, so it is not merged wholesale.
+- Final model-validation/leakage sign-off, reproducible SHAP/fairness evidence and dashboard consistency review remain pending. The project is not marked technically complete until those items are verified.
+- See [Day 10–11 Final Integration Tracker](reports/day10_day11_final_integration_tracker.md).

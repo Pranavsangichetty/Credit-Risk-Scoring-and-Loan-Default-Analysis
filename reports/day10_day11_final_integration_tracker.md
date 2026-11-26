@@ -8,7 +8,7 @@
 
 ## 1. Executive status
 
-The repository has the core dataset, cleaning/EDA work, WoE/IV feature analysis, Logistic Regression and Random Forest baseline outputs, and Tableau dashboard integrated. Day 10's data/feature-engineering validation report is merged through PR #29.
+The repository has the core dataset, cleaning/EDA work, WoE/IV feature analysis, Logistic Regression and Random Forest baseline outputs, and Tableau dashboard integrated. Day 10's data/feature-engineering validation report is merged through PR #29. Sirisha's curated explainability documentation and static SHAP/subgroup diagnostic outputs were integrated through PR #28.
 
 The project is **not yet ready to be described as fully technically validated or complete**. The final model validation/leakage review, reproducible explainability pipeline, independent fairness assessment and final dashboard consistency sign-off still need evidence.
 
@@ -43,13 +43,13 @@ The project is **not yet ready to be described as fully technically validated or
 
 ### Sirisha — explainability and fairness
 
-- PR #28 is open and not merged. It contains SHAP feature-importance outputs and Age/Sex subgroup metrics plus scripts and documentation.
-- The fairness script evaluates predictions on all 1,000 records used to load/train the model, rather than an independent holdout. Its subgroup results are descriptive diagnostics, not unbiased out-of-sample fairness evidence.
-- The SHAP/fairness scripts expect `outputs/random_forest.joblib`, which is not present in the current `main` tree. Reproducibility therefore is not established from the current shared repository.
-- PR #28 also replaces the canonical README and adds a duplicate raw dataset. Those unrelated/duplicate changes should not be merged wholesale.
-- Request a focused revision: retain only verified SHAP/fairness artifacts and their report, document the exact model/data split and run environment, make the model artifact reproducible from the canonical training pipeline, and rerun fairness metrics on an independent holdout. Do not treat correlation or subgroup differences as proof of discrimination or fairness.
+- PR #28 was merged on 26 November 2026 after resolving the README conflict against the current `main` version.
+- Accepted: model-explainability documentation, Day 1 feature dictionary, Day 2 feature documentation, SHAP summary/feature-importance images and CSV, Age/Sex subgroup CSVs, and the Day 4 explainability/fairness report.
+- Excluded from the merged PR: duplicate raw dataset copy, `src/shap_analysis.py` and `src/fairness_analysis.py` because both require `outputs/random_forest.joblib`, which is absent from the shared repository, and the duplicate Day 3 feature-engineering summary whose values overlap with Divya's canonical WoE/IV analysis.
+- The SHAP outputs are global descriptive summaries. The Age/Sex subgroup figures were calculated on all 1,000 records and are not independent-holdout fairness evidence.
+- The report records these limitations. Reproducible SHAP generation from the canonical model pipeline and an independent-holdout fairness assessment remain required.
 
-**Status:** Evidence submitted for review, not accepted into `main`; focused revision and independent evaluation pending.
+**Status:** Curated explainability outputs and documentation integrated; reproducibility and independent fairness validation pending.
 
 ### Raj — dashboard
 
@@ -65,16 +65,16 @@ The project is **not yet ready to be described as fully technically validated or
 | Lav | Confirm canonical cleaned/engineered/WoE inputs and data-quality report | Day 10 output checks merged; model-input sign-off pending |
 | Divya | Final WoE/IV validation and fold-isolated feature-selection results | Existing analysis integrated; leakage-safe rerun pending |
 | Nivesh | Reproducible LR/RF validation, hold-out and CV metrics, threshold recommendation, leakage review | Existing benchmark integrated; final sign-off pending |
-| Sirisha | Reproducible model-specific SHAP, plots and independent-holdout Age/Sex diagnostics | PR #28 open; not accepted pending corrections |
+| Sirisha | Reproducible model-specific SHAP, plots and independent-holdout Age/Sex diagnostics | PR #28 merged (curated evidence); independent-holdout fairness and reproducibility pending |
 | Raj | Final dashboard review against canonical model metrics and updated artifact/evidence | Existing dashboard integrated; final sign-off pending |
 | Pranav | Branch audit, focused integration PR, README/worklog/checklist and final status record | Day 11 repository audit and documentation prepared |
 
 ## 4. Branch and pull-request audit
 
-- `main` was at `eb62f896e57e8993dc148872a9f0e4acbe46b013` at the start of this review.
+- `main` was at `eb62f896e57e8993dc148872a9f0e4acbe46b013` at the start of the Day 10 review and advanced through PR #30 and curated PR #28.
 - `Pranavsangichetty` was two commits behind `main`, with no unique commits ahead. It was fast-forwarded without force before this review documentation was prepared.
 - PR #29 (Lav Day 10 feature-engineering validation report) is merged.
-- PR #28 (Sirisha explainability/fairness submission) remains open and requires a focused revision.
+- PR #28 (Sirisha explainability/fairness submission) merged after README conflict resolution and file-level curation; duplicate data and non-runnable scripts were excluded.
 - Divya's branch contains additional unreviewed notebooks/PDF/CSV; Nivesh's branch contains older duplicate/alternative material. Neither branch is merged wholesale.
 - Raj and Lav branches are behind the current main baseline with no unique commits ahead in the comparison reviewed.
 
@@ -89,8 +89,8 @@ The project is **not yet ready to be described as fully technically validated or
 
 ## 6. Final release decision
 
-**Repository integration:** Core project assets and Day 10 data-quality evidence are present in `main`.  
+**Repository integration:** Core project assets, Day 10 data-quality evidence and curated explainability artifacts are present in `main`.  
 **Team-lead branch:** Synchronized to the current main baseline and updated with this review.  
-**Final technical release:** Pending the model, explainability, fairness and dashboard evidence listed above.
+**Final technical release:** Pending leakage-safe model validation, reproducible SHAP generation, independent-holdout fairness assessment and dashboard consistency sign-off.
 
 Do not mark the project fully complete until those outstanding items are reviewed and recorded with reproducible evidence.

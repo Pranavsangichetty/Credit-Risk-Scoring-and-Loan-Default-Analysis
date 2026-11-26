@@ -75,3 +75,15 @@ The team-lead branch is updated first. The shared `main` branch receives only re
 ## Day 9 integration rule
 
 The personal branch contains team-lead coordination and review documentation. Main should receive the Day 9 tracker and the necessary README/checklist coordination updates through a focused PR. Do not claim SHAP, fairness, final model validation or dashboard review complete without actual evidence.
+
+
+## Day 10–11 — 25–26 November 2026
+
+- Audited the live repository after Day 10 activity. Main had advanced through merged PR #29, which adds Lav's feature-engineering/data-output validation report.
+- Compared the personal branch with main: `Pranavsangichetty` was two commits behind and had no unique commits ahead. Fast-forwarded the branch to main without force.
+- Reviewed Day 10 report claims: row counts, target consistency, WoE missing/non-finite checks and explicit missing-account category handling are documented. The report does not independently recompute all WoE/IV values or model metrics.
+- Reconfirmed that the 0.774 feature-analysis ROC-AUC is preliminary because feature selection and transformations occurred before CV; it must not be presented as leakage-safe generalization performance.
+- Reviewed open PR #28 from Sirisha. SHAP importance outputs and subgroup metrics are supplied, but the fairness script scores the complete dataset and the SHAP/fairness scripts require `outputs/random_forest.joblib`, absent from main. The PR also replaces the canonical README and adds a duplicate raw dataset; it was not merged wholesale.
+- Audited contributor branch comparisons. Divya has additional unreviewed notebooks/PDF/CSV, Nivesh has older duplicate/alternative files, while Raj and Lav branches are behind main without unique commits in the comparison reviewed. No branch was merged wholesale.
+- Added `reports/day10_day11_final_integration_tracker.md` with evidence, owner-wise status and final release limitations.
+- Final model-validation/leakage review, reproducible SHAP, independent-holdout fairness assessment and dashboard consistency sign-off remain open until supported by evidence.

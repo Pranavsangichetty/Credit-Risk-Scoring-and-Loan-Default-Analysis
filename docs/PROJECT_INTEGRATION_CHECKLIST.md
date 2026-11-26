@@ -66,3 +66,23 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 | 2026-11-24 | PR #25 | Lav's Day 8 data-quality validation report | No additional Day 9 sign-off evidenced in reviewed PR list | Merged |
 | 2026-11-24 | PR #26 | Updated WoE/IV and feature-importance notebooks; engineered and WoE datasets; IV tables | No SHAP plots/fairness report or Day 9 model-validation rerun in this PR | Merged |
 | 2026-11-24 | Team-lead Day 9 PR (to be opened) | Day 9 tracker, README progress link and coordination checklist/worklog updates | Keep personal worklog on team-lead branch; no unverified analysis artifacts | Prepared for review |
+
+
+## Day 10–11 final review — 26 November 2026
+
+- [x] Lav: Day 10 data/feature-output validation report merged through PR #29; report's stated scope and limitations recorded.
+- [ ] Divya: review additional branch notebooks and complete fold-isolated WoE/IV and feature-selection validation.
+- [ ] Nivesh: provide final reproducible LR/RF validation, threshold recommendation and preprocessing-leakage review.
+- [ ] Sirisha: revise PR #28 to make SHAP reproducible from the canonical training pipeline and rerun Age/Sex diagnostics on an independent holdout; current full-dataset subgroup results are descriptive only.
+- [ ] Raj: provide final dashboard consistency review against the canonical model outputs.
+- [x] Pranav: audit live branches/PRs, fast-forward team-lead branch, prepare Day 10–11 tracker and update README/worklog/checklist.
+
+### Day 10–11 integration record
+
+| Date | Branch / PR | Files accepted | Files left out and reason | Decision |
+|---|---|---|---|---|
+| 2026-11-26 | PR #29 | Lav's Day 10 feature-engineering/data-output validation report | Report does not independently recompute all WoE/IV values or model metrics | Merged; use within its stated scope |
+| 2026-11-26 | PR #28 | None yet | Open PR replaces canonical README, adds duplicate raw data, scripts depend on absent model artifact, and fairness results use full-data predictions | Request focused revision; do not merge wholesale |
+| 2026-11-26 | Team-lead Day 10–11 review | Final integration tracker, README progress update, worklog and checklist review | No unverified model metrics or incomplete contributor artifacts added | Prepared for focused PR |
+
+**Release gate:** Do not describe the project as technically complete until the outstanding model validation, explainability/fairness and dashboard checks are supported by reproducible evidence.

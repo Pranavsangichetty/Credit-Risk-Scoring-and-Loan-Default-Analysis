@@ -87,3 +87,14 @@ The personal branch contains team-lead coordination and review documentation. Ma
 - Audited contributor branch comparisons. Divya has additional unreviewed notebooks/PDF/CSV, Nivesh has older duplicate/alternative files, while Raj and Lav branches are behind main without unique commits in the comparison reviewed. No branch was merged wholesale.
 - Added `reports/day10_day11_final_integration_tracker.md` with evidence, owner-wise status and final release limitations.
 - Final model-validation/leakage review, reproducible SHAP, independent-holdout fairness assessment and dashboard consistency sign-off remain open until supported by evidence.
+
+
+## PR #28 — Sirisha explainability integration — 26 November 2026
+
+- Reviewed PR #28 and resolved the README conflict by preserving the current canonical `main` README, including the Day 10–11 tracker links and current project status. Confirmed no conflict markers remained.
+- Curated the contributor submission before merge. Accepted the explainability documentation, Day 1 feature dictionary, Day 2 feature documentation, SHAP global plots/feature-importance CSV, Age/Sex subgroup result CSVs and Day 4 explainability/fairness report.
+- Excluded the duplicate raw dataset copy, the SHAP/fairness scripts that depend on the missing `outputs/random_forest.joblib` artifact, and the duplicate Day 3 feature-engineering summary with overlapping/conflicting WoE/IV values.
+- Confirmed the Age/Sex subgroup figures were computed over all 1,000 observations. They are descriptive diagnostics only, not independent-holdout fairness evidence. The global SHAP outputs are static summaries and do not include individual applicant explanations.
+- Created a merge commit with current `main` as the first parent and the curated Sirisha branch as the second parent, then merged PR #28 successfully.
+- Fast-forwarded `Pranavsangichetty` to the updated main baseline. Updated the final tracker and integration checklist to record the curated acceptance and remaining reproducibility/fairness work.
+

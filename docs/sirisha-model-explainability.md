@@ -122,3 +122,17 @@ The model predictions are intended to support lending decisions rather than auto
 Model explainability is an important part of the Credit Risk Scoring and Loan Default Analysis project. SHAP will be used to understand the contribution of individual features and explain both overall model behavior and individual predictions.
 
 The final SHAP visualizations, feature rankings, and observations will be added after the machine learning model is trained and the explainability analysis is completed.
+
+## 11. Current implementation status and limitations
+
+The repository includes global SHAP summary and feature-importance outputs for the Random Forest analysis:
+
+- `outputs/shap/shap_summary.png`
+- `outputs/shap/shap_feature_importance.png`
+- `outputs/shap/shap_feature_importance.csv`
+
+These are global feature-contribution summaries. Individual applicant-level SHAP explanations have not been supplied as part of this submission.
+
+The accompanying Age/Sex subgroup metrics were calculated across the complete 1,000-row dataset. Treat them as descriptive diagnostics only, not independent holdout performance or proof of fairness. A separate holdout-based assessment with documented methodology is still required.
+
+The SHAP/fairness generation scripts were not included in the curated merge because they depend on a saved Random Forest pipeline artifact that is not currently present in the shared repository. Reproducibility remains an outstanding task.

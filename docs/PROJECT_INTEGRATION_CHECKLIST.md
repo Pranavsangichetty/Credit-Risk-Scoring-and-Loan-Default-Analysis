@@ -49,7 +49,7 @@ Contributor branches remain useful for attribution and development history. They
 - [x] Lav: cleaning workflow, cleaned-data checks and Day 8 data-quality validation report (PR #25); obtain separate Day 9 sign-off if further model-input audit was performed.
 - [x] Divya: updated WoE/IV tables and feature-importance notebook integrated (PR #26); independently review fold isolation and feature-selection timing.
 - [ ] Nivesh: final Day 9 reproducibility, threshold recommendation, preprocessing-leakage review and model-validation sign-off.
-- [ ] Sirisha: actual model-specific SHAP outputs, plots, feature interpretations and completed fairness report.
+- [x] Sirisha: global SHAP plots/feature-importance outputs and full-dataset Age/Sex subgroup diagnostics plus documentation integrated through curated PR #28. [ ] Reproducible SHAP pipeline and independent-holdout fairness assessment still pending.
 - [ ] Raj: Day 9 dashboard consistency review against current model outputs and updated evidence if changes are required.
 - [x] Pranav: audit main and team-lead branch, fast-forward personal branch and prepare Day 9 tracker/documentation PR.
 
@@ -73,7 +73,7 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 - [x] Lav: Day 10 data/feature-output validation report merged through PR #29; report's stated scope and limitations recorded.
 - [ ] Divya: review additional branch notebooks and complete fold-isolated WoE/IV and feature-selection validation.
 - [ ] Nivesh: provide final reproducible LR/RF validation, threshold recommendation and preprocessing-leakage review.
-- [ ] Sirisha: revise PR #28 to make SHAP reproducible from the canonical training pipeline and rerun Age/Sex diagnostics on an independent holdout; current full-dataset subgroup results are descriptive only.
+- [x] Sirisha: curated SHAP outputs, feature documentation and full-dataset subgroup diagnostics merged through PR #28. [ ] Reproducible SHAP generation and independent-holdout Age/Sex fairness assessment remain pending.
 - [ ] Raj: provide final dashboard consistency review against the canonical model outputs.
 - [x] Pranav: audit live branches/PRs, fast-forward team-lead branch, prepare Day 10–11 tracker and update README/worklog/checklist.
 
@@ -82,7 +82,7 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 | Date | Branch / PR | Files accepted | Files left out and reason | Decision |
 |---|---|---|---|---|
 | 2026-11-26 | PR #29 | Lav's Day 10 feature-engineering/data-output validation report | Report does not independently recompute all WoE/IV values or model metrics | Merged; use within its stated scope |
-| 2026-11-26 | PR #28 | None yet | Open PR replaces canonical README, adds duplicate raw data, scripts depend on absent model artifact, and fairness results use full-data predictions | Request focused revision; do not merge wholesale |
+| 2026-11-26 | PR #28 | Explainability documentation, Day 1/2 feature docs, SHAP plots/CSV, Age/Sex descriptive subgroup CSVs and Day 4 report; README conflict resolved using canonical main content | Excluded duplicate raw dataset, scripts requiring absent `outputs/random_forest.joblib`, and duplicate Day 3 feature summary | Merged after curation; fairness figures remain full-dataset descriptive diagnostics |
 | 2026-11-26 | Team-lead Day 10–11 review | Final integration tracker, README progress update, worklog and checklist review | No unverified model metrics or incomplete contributor artifacts added | Prepared for focused PR |
 
 **Release gate:** Do not describe the project as technically complete until the outstanding model validation, explainability/fairness and dashboard checks are supported by reproducible evidence.

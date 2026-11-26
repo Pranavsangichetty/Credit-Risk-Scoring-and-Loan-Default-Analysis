@@ -45,7 +45,7 @@ The main features with the highest mean absolute SHAP values were:
 
 SHAP values represent model contribution and do not prove that a feature causes loan default.
 
-## 4. Sex Subgroup Fairness Analysis
+## 4. Sex Subgroup Descriptive Diagnostic (Full Dataset)
 
 The model was evaluated separately for female and male customers.
 
@@ -58,7 +58,7 @@ The model was evaluated separately for female and male customers.
 
 The female subgroup has a higher actual bad-risk rate and a higher predicted bad-risk rate than the male subgroup. Model performance is relatively similar across the two groups, although recall is higher for the female subgroup.
 
-## 5. Age Subgroup Fairness Analysis
+## 5. Age Subgroup Descriptive Diagnostic (Full Dataset)
 
 Customers were divided into three age groups:
 
@@ -78,7 +78,7 @@ The Young subgroup has the highest actual and predicted bad-risk rates. The mode
 
 ## 6. Fairness Summary
 
-The subgroup analysis shows differences in prediction rates and performance metrics across Sex and Age groups.
+The full-dataset descriptive subgroup analysis shows differences in prediction rates and performance metrics across Sex and Age groups. It is not an independent-holdout fairness evaluation.
 
 These differences should be treated as areas for further investigation rather than direct evidence that the model is unfair. Additional evaluation using an independent holdout dataset and formal fairness metrics would provide a stronger fairness assessment.
 
@@ -90,7 +90,7 @@ The model was also loaded using scikit-learn 1.9.1 while it was originally saved
 
 ## 8. Output Files
 
-The following files were generated during Day 4:
+The following static output files were submitted for Day 4. Their generating scripts and trained model artifact are not included in this curated merge, so the results are not currently reproducible from the shared repository:
 
 - `outputs/shap/shap_summary.png`
 - `outputs/shap/shap_feature_importance.png`

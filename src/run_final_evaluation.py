@@ -341,7 +341,7 @@ def main():
     comparison.to_csv(output_dir / "final_model_comparison.csv", index=False)
     pd.DataFrame(fold_rows).to_csv(output_dir / "stratified_5fold_metrics_by_fold.csv", index=False)
     pd.DataFrame(threshold_rows).to_csv(output_dir / "development_oof_threshold_analysis.csv", index=False)
-    pd.DataFrame(holdout_rows).to_csv(output_dir / "holdout_predictions.csv", index=False)
+    pd.DataFrame(holdout_rows).to_csv(output_dir / "final_holdout_predictions.csv", index=False)
     pd.DataFrame(subgroup_rows).to_csv(output_dir / "holdout_subgroup_metrics.csv", index=False)
     (output_dir / "final_evaluation_metrics.json").write_text(
         json.dumps(metrics, indent=2), encoding="utf-8",

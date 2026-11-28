@@ -44,6 +44,7 @@ Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) 
 
 - Divya's statistical-analysis and feature-engineering notebooks and PDF summaries are integrated through PR #9.
 - Nivesh's baseline training/validation scripts and supporting ML documentation are integrated through PR #10.
+- Nivesh's leakage-aware Days 6–11 final evaluation, development-only threshold/model selection, holdout metrics and reproducibility evidence are integrated through PR #37.
 - Day 6 project-lead coordination and integration status are recorded through PR #11.
 - Day 8 selected ML execution outputs, metrics, threshold/subgroup summaries and report builder are integrated through PR #22.
 - Lav's data-quality validation report is integrated through PR #25.
@@ -59,6 +60,9 @@ Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) 
 - [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md)
 - [Day 10–11 Final Integration Tracker](reports/day10_day11_final_integration_tracker.md)
 - [Day 12–13 Project Lead Tracker](reports/day12_day13_project_lead_tracker.md)
+- [Nivesh's Days 6–11 Final ML Evaluation](reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md)
+- [Nivesh Day 10 Reproducibility Review](reports/nivesh/day10_reproducibility_repeat_validation.md)
+- [Nivesh Day 11 Final Evaluation Sign-off](reports/nivesh/day11_final_model_evaluation.md)
 - [Team Lead Worklog](docs/TEAM_LEAD_WORKLOG.md)
 
 ## Evaluation principles

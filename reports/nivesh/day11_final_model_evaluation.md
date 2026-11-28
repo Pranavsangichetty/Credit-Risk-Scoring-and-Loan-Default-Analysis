@@ -17,7 +17,7 @@
 
 - `outputs/final_evaluation_metrics.json`
 - `outputs/final_model_comparison.csv`
-- `outputs/holdout_predictions.csv`
+- `outputs/final_holdout_predictions.csv`
 - `outputs/holdout_subgroup_metrics.csv`
 - `reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md`
 - Successful GitHub Actions run and its uploaded artifact.

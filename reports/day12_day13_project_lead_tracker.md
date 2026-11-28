@@ -10,7 +10,7 @@
 
 Day 12–13 is focused on final technical evidence, cross-component consistency and release readiness. The team-lead branch began this review synchronized with `main` at commit `34c92c801b8ca5c38de2ecc8ccbe07fa7f938b70` (0 ahead / 0 behind).
 
-Nivesh opened PR #32 for Day 6–11 model evaluation and validation. The submission is under review and is **not accepted or merged**. Its new Day 10/11 scripts and reports need path, execution and evidence corrections before integration. Existing metrics in the PR match previously integrated benchmark outputs and must not be described as newly executed Day 10/11 results.
+Nivesh's original PR #32 was substantially behind/diverged from current main and included a replacement README, duplicate scripts and older outputs. It was closed as superseded after the reviewed deliverables were curated into clean PR #37, which is merged. The integrated evaluation script now lives at src/run_final_evaluation.py; it records the canonical dataset SHA-256, environment, seed, development/holdout split, fold metrics and separate holdout results.
 
 The project remains an educational historical-label classification exercise. It is not a validated future-default prediction system and is not suitable for real lending decisions.
 
@@ -21,30 +21,59 @@ The project remains an educational historical-label classification exercise. It 
 | Pranav — Team Lead / Integration | Review PRs, maintain tracker/worklog/checklist, audit branches, integrate only verified files | Focused team-lead PR, review decisions, synchronized branch record | Day 12–13 coordination documentation prepared on team-lead branch |
 | Lav — Data Engineering / EDA | Recheck canonical cleaning and feature-output pipeline | Data-quality summary, source/output consistency and reproducible run notes | Prior Day 10 report integrated; new Day 12–13 sign-off not yet evidenced |
 | Divya — Statistical Analysis / Feature Engineering | Validate WoE/IV and feature selection without leakage | Fold-isolated transformations/feature selection and validation results | Existing analysis integrated; new leakage-safe validation not yet evidenced |
-| Nivesh — ML / Model Development | Final reproducible LR/RF validation, threshold analysis and leakage review | Executed final script, separate development-CV and holdout results, environment/data version, threshold rationale | PR #32 submitted; review corrections and final execution evidence pending |
+| Nivesh — ML / Model Development | Final reproducible LR/RF validation, threshold analysis and leakage review | Executed final script, separate development-CV and holdout results, environment/data version, threshold rationale | Curated final evaluation and generated evidence integrated through PR #37; manual semantic feature review remains pending |
 | Sirisha — Explainability / Documentation | Reproducible SHAP and independent-holdout fairness review | Model artifact or reproducible model pipeline, SHAP run outputs, independent evaluation subgroup results and limitations | Static SHAP/full-data subgroup outputs integrated; reproducibility and independent-holdout fairness remain pending |
 | Raj — BI / Dashboard | Reconcile dashboard with approved model metrics | Dashboard review summary and evidence that displayed figures match canonical outputs | Existing dashboard integrated; final consistency sign-off not yet evidenced |
 
-## 3. PR #32 — preliminary file-level review
+## 3. PR #32 review and curated PR #37 integration
 
-**PR:** [#32 — Nivesh Day 6–11 ML validation submission](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/32)  
-**Decision:** Keep open for corrections; do not merge wholesale.
+**Original submission:** [PR #32 — Nivesh Day 6–11 ML validation](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/32)  
+**Curated integration:** [PR #37 — Nivesh leakage-aware final ML evaluation](https://github.com/Pranavsangichetty/Credit-Risk-Scoring-and-Loan-Default-Analysis/pull/37)  
+**Decision:** PR #37 merged; original PR #32 closed as superseded.
 
-Findings from the submitted file paths and contents:
+The original Nivesh branch had diverged substantially from main. Its README replacement, old full-dataset OOF script, duplicate report builder and legacy outputs were not copied into the shared baseline. The accepted deliverables were transferred to a clean branch based on current main.
 
-1. The new `run_final_evaluation.py` and `nivesh_ml_validation.py` files are at the repository root, but their run instructions refer to `src/run_final_evaluation.py` and `src/nivesh_ml_validation.py`. Their `ROOT = Path(__file__).resolve().parents[1]` calculation also assumes the scripts live one directory below the repository root. Correct the file placement or path calculation and make the documented command match the actual location.
-2. The submitted GitHub Actions workflow runs the existing `src/train_baseline.py`, `src/validate_baseline.py` and `src/build_ml_report.py`. It does not execute the new Day 10/11 final-evaluation script, so a successful run of that workflow would not prove the new final-evaluation protocol ran.
-3. The Day 10 and Day 11 sign-off documents still contain unchecked execution/evidence items and explicitly instruct that actual results be generated. The current PR metrics files reproduce the previously integrated benchmark values; they are not, by themselves, evidence of a new Day 10/11 final holdout run.
-4. The proposed final protocol is directionally appropriate: stratified development/holdout split, development-only out-of-fold threshold analysis and preprocessing inside each fold. It still needs a successful run, generated evidence and verification that holdout data did not influence model/threshold selection.
-5. Subgroup metrics from the complete dataset or development folds must remain descriptive. Independent-holdout fairness analysis is still outstanding.
+### Accepted files
 
-**Required correction before reconsideration:** make script paths and workflow consistent; execute the exact final protocol against the canonical dataset; commit the generated final evidence; record dataset identity/checksum, Python and package versions, random seed, split sizes, fold metrics and separate holdout metrics; and update the Day 10/11 sign-off only after checking those files.
+- src/run_final_evaluation.py
+- requirements.txt update for Matplotlib
+- reports/nivesh/day10_reproducibility_repeat_validation.md
+- reports/nivesh/day11_final_model_evaluation.md
+- reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md
+- outputs/final_evaluation_metrics.json
+- outputs/final_model_comparison.csv
+- outputs/stratified_5fold_metrics_by_fold.csv
+- outputs/development_oof_threshold_analysis.csv
+- outputs/final_holdout_predictions.csv
+- outputs/holdout_subgroup_metrics.csv
+- Canonical README links to the accepted report and sign-off documents
+
+### Evaluation protocol and verified results
+
+- Dataset: 1,000 rows, 700 good / 300 bad, 9 predictors; SHA-256 recorded in JSON.
+- Stratified split: 800 development rows and 200 holdout rows.
+- Stratified 5-fold CV, imputation/scaling/encoding fitted inside each fold.
+- Thresholds selected from development out-of-fold predictions only.
+- Model selected by mean development-fold PR-AUC, not holdout performance.
+- Random Forest development CV PR-AUC mean: 0.5665; Logistic Regression: 0.5551.
+- Random Forest holdout ROC-AUC: 0.7855; holdout PR-AUC: 0.6475.
+- Both models' selected development thresholds: 0.45.
+- Holdout predictions contain 200 records per model; subgroup diagnostics contain 12 group rows.
+
+### Excluded files and safeguards
+
+- Excluded Nivesh's replacement README and retained canonical project README.
+- Excluded the older full-dataset OOF script, duplicate report builder and duplicate/legacy metrics.
+- Preserved the existing baseline outputs/holdout_predictions.csv; final-evaluation predictions use outputs/final_holdout_predictions.csv.
+- Age/Sex holdout subgroup results are descriptive diagnostics, not fairness certification.
+- Manual semantic/post-outcome feature review remains pending.
+- The dataset target is a historical good/bad label, not a defined future-default event; this remains an educational project only.
 
 ## 4. Day 12 review checklist
 
 - [ ] Lav: verify canonical source, cleaned and engineered data handoff.
 - [ ] Divya: provide fold-isolated WoE/IV and feature-selection validation.
-- [ ] Nivesh: correct PR #32 paths/workflow and execute the final validation protocol.
+- [x] Nivesh: corrected final-evaluation script, development-only model/threshold selection and generated CV/holdout evidence integrated through PR #37; manual semantic feature review remains pending.
 - [ ] Sirisha: provide a reproducible SHAP route and define the independent-holdout fairness evaluation.
 - [ ] Raj: compare dashboard values with the current canonical model outputs.
 - [x] Pranav: inspect current branch state and prepare Day 12–13 coordination records.

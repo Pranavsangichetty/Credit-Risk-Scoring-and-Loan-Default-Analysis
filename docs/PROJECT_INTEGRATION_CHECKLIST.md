@@ -48,7 +48,7 @@ Contributor branches remain useful for attribution and development history. They
 
 - [x] Lav: cleaning workflow, cleaned-data checks and Day 8 data-quality validation report (PR #25); obtain separate Day 9 sign-off if further model-input audit was performed.
 - [x] Divya: updated WoE/IV tables and feature-importance notebook integrated (PR #26); independently review fold isolation and feature-selection timing.
-- [ ] Nivesh: final Day 9 reproducibility, threshold recommendation, preprocessing-leakage review and model-validation sign-off.
+- [x] Nivesh: leakage-aware Days 6–11 final evaluation, development-only model/threshold selection and generated holdout evidence integrated through curated PR #37. [ ] Manual semantic/post-outcome feature review remains pending.
 - [x] Sirisha: global SHAP plots/feature-importance outputs and full-dataset Age/Sex subgroup diagnostics plus documentation integrated through curated PR #28. [ ] Reproducible SHAP pipeline and independent-holdout fairness assessment still pending.
 - [ ] Raj: Day 9 dashboard consistency review against current model outputs and updated evidence if changes are required.
 - [x] Pranav: audit main and team-lead branch, fast-forward personal branch and prepare Day 9 tracker/documentation PR.
@@ -72,7 +72,7 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 
 - [x] Lav: Day 10 data/feature-output validation report merged through PR #29; report's stated scope and limitations recorded.
 - [ ] Divya: review additional branch notebooks and complete fold-isolated WoE/IV and feature-selection validation.
-- [ ] Nivesh: provide final reproducible LR/RF validation, threshold recommendation and preprocessing-leakage review.
+- [x] Nivesh: corrected final evaluation script, 5-fold development metrics, OOF threshold analysis, separate holdout results and run metadata integrated through PR #37. [ ] Manual semantic feature review remains pending.
 - [x] Sirisha: curated SHAP outputs, feature documentation and full-dataset subgroup diagnostics merged through PR #28. [ ] Reproducible SHAP generation and independent-holdout Age/Sex fairness assessment remain pending.
 - [ ] Raj: provide final dashboard consistency review against the canonical model outputs.
 - [x] Pranav: audit live branches/PRs, fast-forward team-lead branch, prepare Day 10–11 tracker and update README/worklog/checklist.
@@ -101,6 +101,6 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 
 | Date | Branch / PR | Review finding | Decision |
 |---|---|---|---|
-| 2026-11-28 | PR #32 — Nivesh243 | New root-level scripts are documented as if under `src/`; their root-path calculation assumes a `src/` location. Workflow runs existing baseline scripts rather than the new final-evaluation script. Day 10/11 sign-off remains pending execution evidence. | Keep open for corrections; do not merge wholesale |
+| 2026-11-28 | PR #32 / PR #37 — Nivesh243 | Original branch was substantially diverged; accepted final script, dependencies, Day 10/11 docs, generated metrics and holdout diagnostics were curated onto a clean main-based branch. Canonical README and original baseline holdout predictions preserved. | PR #37 merged; original PR #32 closed as superseded |
 
-**Release gate remains unchanged:** no technical-completion claim until final leakage-safe model validation, reproducible explainability, independent-holdout fairness and dashboard consistency are evidenced.
+**Release gate:** Nivesh's leakage-aware final evaluation pipeline and generated holdout evidence are integrated. Semantic feature review, reproducible SHAP, comprehensive independent fairness review and dashboard consistency sign-off remain outstanding.

@@ -89,7 +89,7 @@ jobs:
             outputs/random_forest.joblib
             reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md
       - name: Commit verified tabular evidence to Nivesh branch
-        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

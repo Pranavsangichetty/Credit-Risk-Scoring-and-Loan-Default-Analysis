@@ -16,7 +16,6 @@ on:
       - "src/run_final_evaluation.py"
       - "requirements.txt"
       - "german_credit_data.csv"
-      - ".github/workflows/nivesh-ml-execution.yml"
 
 permissions:
   contents: write

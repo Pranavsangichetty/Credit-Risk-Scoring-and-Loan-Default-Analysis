@@ -1,0 +1,210 @@
+{
+  "project": "Credit Risk Scoring and Loan Default Analysis",
+  "target_definition": "Historical Risk label: good=0, bad=1; bad is positive class.",
+  "dataset": {
+    "file": "german_credit_data.csv",
+    "sha256": "42be3b82a2e5073bd5ca23bce1d1c31426b78f72d20cd892f3aacaa2ba30a075",
+    "rows_after_target_validation": 1000,
+    "feature_count": 9,
+    "features": [
+      "Age",
+      "Sex",
+      "Job",
+      "Housing",
+      "Saving accounts",
+      "Checking account",
+      "Credit amount",
+      "Duration",
+      "Purpose"
+    ],
+    "index_columns_removed": [
+      "Unnamed: 0"
+    ],
+    "class_counts": {
+      "good_0": 700,
+      "bad_1": 300
+    }
+  },
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Linux-7.0.0-1018-aws-x86_64-with-glibc2.43",
+    "pandas": "3.1.1",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "protocol": {
+    "holdout": "Stratified 80/20 split; held out until final evaluation.",
+    "development_cv": "Stratified 5-fold CV on development partition only.",
+    "threshold_selection": "Maximum bad-class F1 on development out-of-fold probabilities; ties prefer recall then higher threshold.",
+    "model_selection": "Highest mean development-fold PR-AUC; holdout metrics are reported but never used to choose the model.",
+    "random_state": 42,
+    "positive_class": "bad (1)"
+  },
+  "split": {
+    "development_rows": 800,
+    "holdout_rows": 200,
+    "development_class_counts": {
+      "good_0": 560,
+      "bad_1": 240
+    },
+    "holdout_class_counts": {
+      "good_0": 140,
+      "bad_1": 60
+    }
+  },
+  "leakage_checks": {
+    "target_excluded_from_predictors": true,
+    "imputation_scaling_encoding_inside_pipeline": true,
+    "preprocessing_refit_inside_each_cv_fold": true,
+    "threshold_selected_without_holdout": true,
+    "model_selection_based_on_development_cv_only": true,
+    "semantic_post_outcome_feature_review": "Still requires domain review of source feature definitions; pipeline isolation cannot detect semantic leakage."
+  },
+  "models": {
+    "Logistic Regression": {
+      "development_cv": {
+        "roc_auc": {
+          "mean": 0.7453125,
+          "std": 0.061969106022627264
+        },
+        "pr_auc": {
+          "mean": 0.5551204304727518,
+          "std": 0.07505580667553799
+        },
+        "balanced_accuracy": {
+          "mean": 0.681547619047619,
+          "std": 0.04673898444803396
+        },
+        "bad_f1": {
+          "mean": 0.5625203205038133,
+          "std": 0.05439880691924767
+        }
+      },
+      "development_oof": {
+        "roc_auc": 0.7440550595238095,
+        "pr_auc_average_precision": 0.5437608878778459
+      },
+      "threshold_selection": {
+        "selected_threshold": 0.45,
+        "development_oof_metrics": {
+          "model": "Logistic Regression",
+          "threshold": 0.45,
+          "accuracy": 0.65875,
+          "balanced_accuracy": 0.6931547619047619,
+          "bad_precision": 0.4594594594594595,
+          "bad_recall": 0.7791666666666667,
+          "bad_f1": 0.5780525502318392,
+          "tn": 340,
+          "fp": 220,
+          "fn": 53,
+          "tp": 187,
+          "predicted_bad": 407
+        }
+      },
+      "holdout": {
+        "roc_auc": 0.7614285714285715,
+        "pr_auc_average_precision": 0.6131596262147484,
+        "metrics_at_0_50": {
+          "threshold": 0.5,
+          "accuracy": 0.715,
+          "balanced_accuracy": 0.725,
+          "bad_precision": 0.5172413793103449,
+          "bad_recall": 0.75,
+          "bad_f1": 0.6122448979591837,
+          "tn": 98,
+          "fp": 42,
+          "fn": 15,
+          "tp": 45,
+          "predicted_bad": 87
+        },
+        "metrics_at_development_selected_threshold": {
+          "threshold": 0.45,
+          "accuracy": 0.68,
+          "balanced_accuracy": 0.7095238095238094,
+          "bad_precision": 0.47959183673469385,
+          "bad_recall": 0.7833333333333333,
+          "bad_f1": 0.5949367088607594,
+          "tn": 89,
+          "fp": 51,
+          "fn": 13,
+          "tp": 47,
+          "predicted_bad": 98
+        }
+      }
+    },
+    "Random Forest": {
+      "development_cv": {
+        "roc_auc": {
+          "mean": 0.7569196428571429,
+          "std": 0.060212631084767404
+        },
+        "pr_auc": {
+          "mean": 0.5664629249211055,
+          "std": 0.06834435176170238
+        },
+        "balanced_accuracy": {
+          "mean": 0.6973214285714284,
+          "std": 0.03828195499489667
+        },
+        "bad_f1": {
+          "mean": 0.5788338338338338,
+          "std": 0.04740383291070329
+        }
+      },
+      "development_oof": {
+        "roc_auc": 0.7565699404761905,
+        "pr_auc_average_precision": 0.5477608605858082
+      },
+      "threshold_selection": {
+        "selected_threshold": 0.45,
+        "development_oof_metrics": {
+          "model": "Random Forest",
+          "threshold": 0.45,
+          "accuracy": 0.7,
+          "balanced_accuracy": 0.7130952380952381,
+          "bad_precision": 0.5,
+          "bad_recall": 0.7458333333333333,
+          "bad_f1": 0.5986622073578596,
+          "tn": 381,
+          "fp": 179,
+          "fn": 61,
+          "tp": 179,
+          "predicted_bad": 358
+        }
+      },
+      "holdout": {
+        "roc_auc": 0.7854761904761904,
+        "pr_auc_average_precision": 0.6475471373483427,
+        "metrics_at_0_50": {
+          "threshold": 0.5,
+          "accuracy": 0.705,
+          "balanced_accuracy": 0.6988095238095238,
+          "bad_precision": 0.5061728395061729,
+          "bad_recall": 0.6833333333333333,
+          "bad_f1": 0.5815602836879432,
+          "tn": 100,
+          "fp": 40,
+          "fn": 19,
+          "tp": 41,
+          "predicted_bad": 81
+        },
+        "metrics_at_development_selected_threshold": {
+          "threshold": 0.45,
+          "accuracy": 0.68,
+          "balanced_accuracy": 0.7047619047619048,
+          "bad_precision": 0.4791666666666667,
+          "bad_recall": 0.7666666666666667,
+          "bad_f1": 0.5897435897435898,
+          "tn": 90,
+          "fp": 50,
+          "fn": 14,
+          "tp": 46,
+          "predicted_bad": 96
+        }
+      }
+    }
+  },
+  "selected_model_by_development_cv_pr_auc": "Random Forest",
+  "model_selection_note": "The selected model is determined only from development-fold mean PR-AUC. Holdout metrics are reported as final estimates and are not used to select a model."
+}

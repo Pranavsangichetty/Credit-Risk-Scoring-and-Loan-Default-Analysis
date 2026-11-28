@@ -110,3 +110,16 @@ The personal branch contains team-lead coordination and review documentation. Ma
 - Added `reports/day12_day13_project_lead_tracker.md` and updated README progress, integration checklist and this worklog on the team-lead branch.
 - Remaining team sign-offs: Lav's fresh data handoff check, Divya's fold-isolated WoE/IV and feature selection, Nivesh's corrected and executed final evaluation, Sirisha's reproducible SHAP/independent-holdout fairness work, and Raj's dashboard consistency review.
 - The Day 12–13 documentation is a coordination deliverable; it does not mean the outstanding technical tasks are complete.
+
+
+## Nivesh PR #32 — curated final evaluation integration — 28 November 2026
+
+- Reopened and reviewed the original PR #32 after the requested corrections. The contributor branch had diverged substantially from current main, so a wholesale merge would have risked replacing canonical files and introducing duplicate/legacy outputs.
+- Corrected the final evaluation script location to src/run_final_evaluation.py, fixed repository-root path handling, and separated the final holdout predictions file from the existing baseline outputs/holdout_predictions.csv.
+- Reworked the evaluation protocol to use a stratified 80/20 split, development-only stratified 5-fold CV, OOF threshold selection and model selection by development-fold mean PR-AUC. Preprocessing remains inside fold-fitted pipelines.
+- Confirmed the generated JSON records the dataset SHA-256, Python/package versions, random seed, class counts and split sizes. Verified 40 fold-metric rows, 34 threshold rows, 400 holdout prediction rows and 12 holdout subgroup rows.
+- Results: Random Forest development CV PR-AUC mean 0.5665 versus 0.5551 for Logistic Regression; Random Forest holdout ROC-AUC 0.7855 and PR-AUC 0.6475. Both models selected threshold 0.45 from development OOF predictions. Model selection was based on development CV, not holdout scores.
+- Merged workflow safeguards through PRs #34, #35 and #36 so the final evaluation is configured in the default branch, preserves the baseline holdout file and does not push generated commits from pull-request runs.
+- Integrated only the reviewed files through clean, main-based PR #37. Preserved the canonical README and baseline holdout predictions; excluded the contributor README replacement, older full-dataset OOF script, duplicate report builder and legacy outputs.
+- PR #37 merged at 9767de06fc9acbcae4cdf174fd82a2f94cf05bc0. Closed original PR #32 as superseded with a link to the curated integration.
+- Remaining project gates: semantic/post-outcome feature review, reproducible SHAP, comprehensive fairness review and dashboard consistency sign-off. The project is not declared technically complete.

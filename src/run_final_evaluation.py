@@ -388,7 +388,7 @@ def main():
         "- `outputs/final_model_comparison.csv`",
         "- `outputs/stratified_5fold_metrics_by_fold.csv`",
         "- `outputs/development_oof_threshold_analysis.csv`",
-        "- `outputs/holdout_predictions.csv`",
+        "- `outputs/final_holdout_predictions.csv`",
         "- `outputs/holdout_subgroup_metrics.csv`",
         "- Holdout ROC/PR plots and fitted model artifacts in `outputs/`",
     ]

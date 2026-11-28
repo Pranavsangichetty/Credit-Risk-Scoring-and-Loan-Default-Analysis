@@ -1,0 +1,93 @@
+name: Nivesh final ML evaluation
+
+on:
+  push:
+    branches:
+      - Nivesh243
+    paths:
+      - "src/run_final_evaluation.py"
+      - "requirements.txt"
+      - "german_credit_data.csv"
+      - ".github/workflows/nivesh-ml-execution.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nivesh-final-evaluation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  final-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      - name: Run leakage-aware final evaluation
+        run: python src/run_final_evaluation.py --data german_credit_data.csv
+      - name: Verify generated evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          required = [
+              "outputs/final_evaluation_metrics.json",
+              "outputs/final_model_comparison.csv",
+              "outputs/stratified_5fold_metrics_by_fold.csv",
+              "outputs/development_oof_threshold_analysis.csv",
+              "outputs/holdout_predictions.csv",
+              "outputs/holdout_subgroup_metrics.csv",
+              "reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md",
+          ]
+          missing = [path for path in required if not Path(path).is_file()]
+          if missing:
+              raise SystemExit(f"Missing generated evidence: {missing}")
+          data = json.loads(Path(required[0]).read_text())
+          assert data["dataset"]["sha256"]
+          assert data["protocol"]["random_state"] == 42
+          assert data["leakage_checks"]["threshold_selected_without_holdout"] is True
+          assert data["leakage_checks"]["model_selection_based_on_development_cv_only"] is True
+          assert len(data["models"]) == 2
+          assert data["selected_model_by_development_cv_pr_auc"] in data["models"]
+          print("All final-evaluation evidence checks passed.")
+          PY
+      - name: Upload complete run artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nivesh-final-evaluation-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            outputs/final_evaluation_metrics.json
+            outputs/final_model_comparison.csv
+            outputs/stratified_5fold_metrics_by_fold.csv
+            outputs/development_oof_threshold_analysis.csv
+            outputs/holdout_predictions.csv
+            outputs/holdout_subgroup_metrics.csv
+            outputs/holdout_roc_curves.png
+            outputs/holdout_precision_recall_curves.png
+            outputs/logistic_regression.joblib
+            outputs/random_forest.joblib
+            reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md
+      - name: Commit verified tabular evidence to Nivesh branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/final_evaluation_metrics.json outputs/final_model_comparison.csv outputs/stratified_5fold_metrics_by_fold.csv outputs/development_oof_threshold_analysis.csv outputs/holdout_predictions.csv outputs/holdout_subgroup_metrics.csv reports/nivesh/Nivesh_Days6-11_Final_Model_Evaluation.md
+          if git diff --cached --quiet; then
+            echo "Generated evidence is unchanged; no commit is required."
+          else
+            git commit -m "Add verified Day 6-11 final ML evaluation evidence"
+            git push origin HEAD:Nivesh243
+          fi

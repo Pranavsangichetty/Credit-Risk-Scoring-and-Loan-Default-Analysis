@@ -117,6 +117,8 @@ This repository is for educational analysis. It must not be used as the basis fo
 
 - Audited the team-lead branch against `main`; both were synchronized at the start of the review (0 ahead / 0 behind).
 - Added the Day 12–13 project-lead tracker covering owner-wise evidence, review gates and final integration responsibilities.
-- Nivesh's PR #32 is under file-level review. The submitted final-evaluation scripts have path/documentation mismatches, and the included workflow does not execute the new Day 10/11 final-evaluation script. Existing metrics do not establish a new final evaluation run.
-- PR #32 is not merged. Model validation, fold-isolated feature review, reproducible SHAP, independent-holdout fairness and dashboard consistency sign-off remain pending until supported by verified evidence.
+- Nivesh's original PR #32 was closed as superseded because its branch had diverged substantially from current main; the reviewed, non-duplicative Day 6–11 deliverables were integrated through curated PR #37.
+- The final evaluation uses a stratified 80/20 split, development-only 5-fold CV, OOF threshold selection and model selection by development CV PR-AUC. Dataset checksum, environment, seed and split counts are recorded.
+- Random Forest was selected by development CV PR-AUC (0.5665 versus 0.5551 for Logistic Regression); its fixed holdout ROC-AUC is 0.7855 and PR-AUC is 0.6475. See the linked final evaluation report and JSON/CSV evidence.
+- The previous canonical outputs/holdout_predictions.csv remains unchanged; final evaluation predictions are stored separately. Semantic/post-outcome feature review, reproducible SHAP, independent fairness review and dashboard sign-off remain pending.
 - See [Day 12–13 Project Lead Tracker](reports/day12_day13_project_lead_tracker.md).

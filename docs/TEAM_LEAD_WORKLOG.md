@@ -98,3 +98,15 @@ The personal branch contains team-lead coordination and review documentation. Ma
 - Created a merge commit with current `main` as the first parent and the curated Sirisha branch as the second parent, then merged PR #28 successfully.
 - Fast-forwarded `Pranavsangichetty` to the updated main baseline. Updated the final tracker and integration checklist to record the curated acceptance and remaining reproducibility/fairness work.
 
+
+
+## Day 12–13 — 27–28 November 2026
+
+- Checked the live GitHub repository before making changes. `Pranavsangichetty` and `main` were identical at commit `34c92c801b8ca5c38de2ecc8ccbe07fa7f938b70` (0 ahead / 0 behind).
+- Reviewed the open Nivesh PR #32 file list and inspected its final-evaluation scripts, Day 10/11 sign-off notes, workflow and generated metrics.
+- Recorded a preliminary review: root-level script locations do not match the documented `src/` commands; the scripts' repository-root calculation assumes they are under `src/`; and the included Actions workflow still runs the existing baseline scripts rather than the new final-evaluation script.
+- Confirmed the Day 10/11 sign-off documents still require execution evidence. Existing metric files alone do not demonstrate a new final holdout evaluation.
+- Kept PR #32 open for corrections and did not merge its files into `main`.
+- Added `reports/day12_day13_project_lead_tracker.md` and updated README progress, integration checklist and this worklog on the team-lead branch.
+- Remaining team sign-offs: Lav's fresh data handoff check, Divya's fold-isolated WoE/IV and feature selection, Nivesh's corrected and executed final evaluation, Sirisha's reproducible SHAP/independent-holdout fairness work, and Raj's dashboard consistency review.
+- The Day 12–13 documentation is a coordination deliverable; it does not mean the outstanding technical tasks are complete.

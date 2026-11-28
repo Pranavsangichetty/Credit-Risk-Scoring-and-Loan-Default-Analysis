@@ -86,3 +86,21 @@ The dataset contains 1,000 records and a historical `good` / `bad` label. Report
 | 2026-11-26 | Team-lead Day 10–11 review | Final integration tracker, README progress update, worklog and checklist review | No unverified model metrics or incomplete contributor artifacts added | Prepared for focused PR |
 
 **Release gate:** Do not describe the project as technically complete until the outstanding model validation, explainability/fairness and dashboard checks are supported by reproducible evidence.
+
+
+## Day 12–13 review — 27–28 November 2026
+
+- [x] Pranav: verify `Pranavsangichetty` and `main` are synchronized before starting this review; prepare Day 12–13 tracker and coordination record.
+- [ ] Lav: submit fresh Day 12–13 data/feature handoff verification; prior Day 10 report remains within its stated scope.
+- [ ] Divya: provide fold-isolated WoE/IV and feature-selection validation.
+- [ ] Nivesh: correct and execute the final-evaluation workflow, then submit reproducible CV and separate holdout evidence. PR #32 remains under review; do not treat its existing metrics as a new Day 10/11 run.
+- [ ] Sirisha: provide reproducible SHAP generation and independent-holdout fairness assessment.
+- [ ] Raj: provide final dashboard consistency sign-off against approved canonical outputs.
+
+### Day 12–13 PR review record
+
+| Date | Branch / PR | Review finding | Decision |
+|---|---|---|---|
+| 2026-11-28 | PR #32 — Nivesh243 | New root-level scripts are documented as if under `src/`; their root-path calculation assumes a `src/` location. Workflow runs existing baseline scripts rather than the new final-evaluation script. Day 10/11 sign-off remains pending execution evidence. | Keep open for corrections; do not merge wholesale |
+
+**Release gate remains unchanged:** no technical-completion claim until final leakage-safe model validation, reproducible explainability, independent-holdout fairness and dashboard consistency are evidenced.

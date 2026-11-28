@@ -58,6 +58,7 @@ Read the [Project Integration Checklist](docs/PROJECT_INTEGRATION_CHECKLIST.md) 
 - [Day 8 Project Lead Tracker](reports/day8_project_lead_tracker.md)
 - [Day 9 Project Lead Tracker](reports/day9_project_lead_tracker.md)
 - [Day 10–11 Final Integration Tracker](reports/day10_day11_final_integration_tracker.md)
+- [Day 12–13 Project Lead Tracker](reports/day12_day13_project_lead_tracker.md)
 - [Team Lead Worklog](docs/TEAM_LEAD_WORKLOG.md)
 
 ## Evaluation principles
@@ -106,3 +107,12 @@ This repository is for educational analysis. It must not be used as the basis fo
 - Sirisha's PR #28 contributes SHAP plots/feature-importance outputs and Age/Sex subgroup diagnostics. The subgroup figures use all 1,000 records and are descriptive, not independent holdout fairness evidence. Reproducible analysis scripts are not included because the required saved Random Forest artifact is not present in the shared repository. See the Day 4 explainability report for scope and limitations.
 - Final model-validation/leakage sign-off, reproducible SHAP/fairness evidence and dashboard consistency review remain pending. The project is not marked technically complete until those items are verified.
 - See [Day 10–11 Final Integration Tracker](reports/day10_day11_final_integration_tracker.md).
+
+
+## Day 12–13 update — 27–28 November 2026
+
+- Audited the team-lead branch against `main`; both were synchronized at the start of the review (0 ahead / 0 behind).
+- Added the Day 12–13 project-lead tracker covering owner-wise evidence, review gates and final integration responsibilities.
+- Nivesh's PR #32 is under file-level review. The submitted final-evaluation scripts have path/documentation mismatches, and the included workflow does not execute the new Day 10/11 final-evaluation script. Existing metrics do not establish a new final evaluation run.
+- PR #32 is not merged. Model validation, fold-isolated feature review, reproducible SHAP, independent-holdout fairness and dashboard consistency sign-off remain pending until supported by verified evidence.
+- See [Day 12–13 Project Lead Tracker](reports/day12_day13_project_lead_tracker.md).
